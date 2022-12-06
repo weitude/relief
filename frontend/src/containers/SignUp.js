@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import MyCopyright from '../components/MyCopyright'
+import { SignUp_axios } from '../axios';
 
 const theme = createTheme({
     palette: {
@@ -22,7 +23,7 @@ const theme = createTheme({
     }
 });
 export default function SignUp() {
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
@@ -30,7 +31,15 @@ export default function SignUp() {
             email: data.get('email'),
             password: data.get('password'),
         });
+
+        const name = data.get('name')
+        const email = data.get('email')
+        const password = data.get('password')
+
+        const temp = await SignUp_axios(name, email, password, "user")
+        console.log(temp)
         window.location.href = "."
+
     };
 
 

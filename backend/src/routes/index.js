@@ -8,16 +8,24 @@ import { Card } from '../models/Card'
 const router = express.Router()
 
 const CreateUser = async (res, name, email, hash, role) => {
+	const result = await User.find({name: name})
+	if(result.length >= 1){
+		res.json({message: "Username exist", type: 2})
+		return 
+	}
+
+
 	try{
 		await User.create({name: name, email: email, hash: hash, role: role})
-		res.json({message: "success"})
+		res.json({message: "success", type: 1})
 	}
 	catch (e) {
-		res.json({message: e})
+		res.json({message: "error", type: 0})
 	}
 }
 
 const Login = async (res, name, hash) =>{
+	console.log(name)
 	const result = await User.find({name: name})
 		
 	if(result.length === 1){
@@ -67,8 +75,9 @@ router.post('/signup', (req, res) => {
 })
 
 router.get('/signin', (req, res) => {
-	const name = req.body.name
-	const password = req.body.password
+	const name = req.query.name
+	const password = req.query.password
+	console.log(password)
 
 	const hash = sha256(password);
 
