@@ -30,6 +30,7 @@ export default function SignUp() {
             email: data.get('email'),
             password: data.get('password'),
         });
+        window.location.href = "."
     };
 
 
