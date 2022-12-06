@@ -77,11 +77,11 @@ const Init = async (res) => {
 		const result = await Card.find({})
 		.limit(30)
 		.sort("created_at")
-		console.log(result)
-		res.json({message: result})
+
+		res.json({message: "success", content: result, type: 1})
 	}
 	catch{
-		res.json({message: "error"})
+		res.json({message: "error", content: [], type: 0})
 	}
 }
 
