@@ -1,8 +1,8 @@
-import express, { response } from 'express'
+import express from 'express'
 import crypto from 'crypto'
 import { sha256 } from 'js-sha256';
 import { Base64 } from 'js-base64';
-import { User } from '../models/user'
+import { User } from '../models/User'
 import { Card } from '../models/Card'
 
 const router = express.Router()
@@ -89,9 +89,6 @@ router.post('/postcard', (req, res) => {
 router.post('/reply', (req, res) => {
 	const id = req.body.id
 	const response = req.body.response
-
-	console.log(id)
-	console.log(response)
 
 	Reply(res, id, response)
 })
