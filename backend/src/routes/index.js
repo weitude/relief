@@ -1,6 +1,7 @@
 import express from 'express'
 import { sha256 } from 'js-sha256';
 import { User } from '../models/user'
+import { Card } from '../models/Card'
 
 const router = express.Router()
 
@@ -32,6 +33,16 @@ const Login = async (res, name, hash) =>{
 	}
 }
 
+const PostCard = async (res, title, question, tag, id) => {
+	try{
+		await Card.create({title: title, question: question, response: "", tag: tag, replied: false, id: id})
+		res.json({message: "success", type: 1})
+	}
+	catch (e){
+		res.json({message: "error", type: 0})
+	}
+}
+
 router.post('/signup', (req, res) => {
 	const name = req.body.name
 	const email = req.body.email
@@ -50,6 +61,15 @@ router.get('/signin', (req, res) => {
 	const hash = sha256(password);
 
 	Login(res, name, hash)
+})
+
+router.post('/postcard', (req, res) => {
+	const title = req.body.title
+	const question = req.body.question
+	const tag = req.body.tag
+	const id = req.body.id
+
+	PostCard(res, title, question, tag, id)
 })
 
 export default router
