@@ -8,12 +8,19 @@ import { Card } from '../models/Card'
 const router = express.Router()
 
 const CreateUser = async (res, name, email, hash, role) => {
+	const result = await User.find({name: name})
+	if(result.length >= 1){
+		res.json({message: "Username exist", type: 2})
+		return 
+	}
+
+
 	try{
 		await User.create({name: name, email: email, hash: hash, role: role})
 		res.json({message: "success", type: 1})
 	}
 	catch (e) {
-		res.json({message: e, type: 0})
+		res.json({message: "error", type: 0})
 	}
 }
 

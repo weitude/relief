@@ -8,15 +8,29 @@ const LogIn = async (name, password) =>
     console.log(password)
     const {
         data: {message, content, type}
-    } = await instance.get('/signin', {params:{name, password}})
+    } = await instance.get('/signin', {
+        params:{
+            name, 
+            password
+        }
+    })
+
     return {message, content, type}
 }
 
-// const guess = async (number) =>
-// {
-//     const {data: {msg}} = await instance.get('/guess', {params: {number}})
-//     return msg
-// }
+const SignUp_axios = async (name, email, password, role) =>
+{
+    const {
+        data: {message, type}
+    } = await instance.post('/signup', {
+        name: name, 
+        email: email, 
+        password: password, 
+        role: role
+    })
+    
+    return {message, type}
+}
 
 // const restart = async () =>
 // {
@@ -24,4 +38,4 @@ const LogIn = async (name, password) =>
 //     return {msg, ans}
 // }
 
-export {LogIn}
+export {LogIn, SignUp_axios}
