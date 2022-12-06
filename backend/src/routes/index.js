@@ -5,7 +5,6 @@ import { User } from '../models/user'
 const router = express.Router()
 
 const CreateUser = async (res, name, email, hash, role) => {
-	console.log(name)
 	try{
 		await User.create({name: name, email: email, hash: hash, role: role})
 		res.json({message: "success"})
@@ -15,7 +14,25 @@ const CreateUser = async (res, name, email, hash, role) => {
 	}
 }
 
-router.post('/SignUp', (req, res) => {
+const Login = async (res, name, hash) =>{
+	const result = await User.find({name: name})
+		
+	if(result.length === 1){
+		console.log(hash)
+		if(result[0].hash === hash)
+			res.json({message: "success", content: result, type: 1})	
+		else
+			res.json({message: "Wrong password", content: undefined, type: 2})
+	}
+	else if(result.length > 1){
+		res.json({message: "really?", content: undefined, type: 3})
+	}
+	else{
+		res.json({message: "Can't find user", content: undefined, type: 0})
+	}
+}
+
+router.post('/signup', (req, res) => {
 	const name = req.body.name
 	const email = req.body.email
 	const password = req.body.password
@@ -24,6 +41,15 @@ router.post('/SignUp', (req, res) => {
 	const hash = sha256(password);
 
 	CreateUser(res, name, email, hash, role)
+})
+
+router.get('/signin', (req, res) => {
+	const name = req.body.name
+	const password = req.body.password
+
+	const hash = sha256(password);
+
+	Login(res, name, hash)
 })
 
 export default router
