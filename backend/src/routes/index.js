@@ -62,6 +62,29 @@ const Reply = async (res, id, response) => {
 	}
 }
 
+const SearchCard = async (res, id) => {
+	try{
+		const result = await Card.findOne({id: id})
+		res.json({message: "success", content: result, type: 1})
+	}
+	catch{
+		res.json({message: "error", constent: [], type: 0})
+	}
+}
+
+const Init = async (res) => {
+	try{
+		const result = await Card.find({})
+		.limit(30)
+		.sort("created_at")
+
+		res.json({message: "success", content: result, type: 1})
+	}
+	catch{
+		res.json({message: "error", content: [], type: 0})
+	}
+}
+
 router.post('/signup', (req, res) => {
 	const name = req.body.name
 	const email = req.body.email
@@ -99,6 +122,16 @@ router.post('/reply', (req, res) => {
 	const response = req.body.response
 
 	Reply(res, id, response)
+})
+
+router.get('/opencard', (req, res) => {
+	const id = req.body.id
+
+	SearchCard(res, id)
+})
+
+router.get('/init', (req, res) => {
+	Init(res)
 })
 
 export default router
