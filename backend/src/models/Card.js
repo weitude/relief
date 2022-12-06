@@ -8,7 +8,7 @@ const CardSchema = new Schema({
     response: { type: String },
     tag: [{ type: String }],
     replied: { type: Boolean, required: [true, 'Replied field is required'] },
-    id: { type: Number, required: [true, 'Id field is required'] }
+    id: { type: String, required: [true, 'Id field is required'] }
 }, {
     collection: 'Card',
     timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
