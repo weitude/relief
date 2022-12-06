@@ -13,19 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import ragdoll from '../images/ragdoll.jpg'
-
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://weitude.github.io/relief">
-                NTU Relief
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+import MyCopyright from '../components/MyCopyright'
 
 const theme = createTheme({
     palette: {
@@ -71,11 +59,15 @@ export default function SignIn() {
                             alignItems: 'center',
                         }}
                     >
+                        <Typography component="h1" variant="h2" color="#a85c25"
+                                    sx={{ fontWeight: 'bold' ,mt:2,  mb: 6}}>
+                            NTU Relief
+                        </Typography>
                         <Avatar sx={{m: 1, bgcolor: '#c47a45'}}>
                             <LockOutlinedIcon/>
                         </Avatar>
                         <Typography component="h1" variant="h5">
-                            NTU Relief
+                            Sign in
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 1}}>
                             <TextField
@@ -112,12 +104,12 @@ export default function SignIn() {
                             </Button>
                             <Grid container justifyContent="flex-end">
                                 <Grid item>
-                                    <Link href="#" variant="body2">
+                                    <Link href="signup" variant="body2">
                                         {"Don't have an account? Sign Up"}
                                     </Link>
                                 </Grid>
                             </Grid>
-                            <Copyright sx={{mt: 5}}/>
+                            <MyCopyright/>
                         </Box>
                     </Box>
                 </Grid>
