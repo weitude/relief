@@ -26,10 +26,12 @@ export default function SignUp() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
+            name: data.get('name'),
             email: data.get('email'),
             password: data.get('password'),
         });
     };
+
 
     return (
         <ThemeProvider theme={theme}>
@@ -43,15 +45,15 @@ export default function SignUp() {
                         alignItems: 'center',
                     }}
                 >
-                    <Avatar sx={{m: 1, bgcolor: 'secondary.main'}}>
+                    <Avatar sx={{m: 1, bgcolor: '#c47a45'}}>
                         <LockOutlinedIcon/>
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 3}}>
+                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 3}}>
                         <Grid container spacing={2}>
-                            <Grid item xs={12} >
+                            <Grid item xs={12}>
                                 <TextField
                                     autoComplete="given-name"
                                     name="name"
@@ -95,12 +97,13 @@ export default function SignUp() {
                             fullWidth
                             variant="contained"
                             sx={{mt: 3, mb: 2}}
+                            // onClick={()=>handleSubmit}
                         >
                             Sign Up
                         </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link href=".." variant="body2">
+                                <Link href="." variant="body2">
                                     Already have an account? Sign in
                                 </Link>
                             </Grid>
