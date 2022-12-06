@@ -25,7 +25,6 @@ const CreateUser = async (res, name, email, hash, role) => {
 }
 
 const Login = async (res, name, hash) =>{
-	console.log(name)
 	const result = await User.find({name: name})
 		
 	if(result.length === 1){
@@ -33,13 +32,13 @@ const Login = async (res, name, hash) =>{
 		if(result[0].hash === hash)
 			res.json({message: "success", content: result, type: 1})	
 		else
-			res.json({message: "Wrong password", content: undefined, type: 2})
+			res.json({message: "Wrong password", content: [], type: 2})
 	}
 	else if(result.length > 1){
-		res.json({message: "really?", content: undefined, type: 3})
+		res.json({message: "really?", content: [], type: 3})
 	}
 	else{
-		res.json({message: "Can't find user", content: undefined, type: 0})
+		res.json({message: "Can't find user", content: [], type: 0})
 	}
 }
 
