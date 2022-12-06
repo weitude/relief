@@ -1,11 +1,10 @@
-import SearchBar from "../components/searchBar";
+import SearchBox from "../components/searchBox";
 import styled from "styled-components";
 import Ques from "../components/Ques";
-import Post from "./Post";
+import Filter from "../components/Filter";
 
 import "../css/UserPage.css"
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 const Title = styled.h1`
     font-size: 80px;
@@ -15,30 +14,18 @@ const Title = styled.h1`
 `;
 
 
-const getPosts = async () => {
-    // TODO
-}
-
 const UserPage = () =>{
-
-    /*  TODO: Pop-up window
-    const [posts, setPosts] = useEffect();
-    const navigate = useNavigate();
-    
-    const goToPost = (id) => {
-        navigate(`/post/${id}`);
-    }
-    */
 
     return(
         <div>
             <div className="Title">
-                <Title> Relief </Title>
+                <Title> NTU Relief </Title>
             </div>
-            <div className="SearchBar"><SearchBar/></div>
+            <div className="SearchBar">
+                <SearchBox/>
+            </div>
             <div className="Content">
                 <Ques /> 
-                {/* {posts.map( (post, i) => (<Ques key={i} onClick={() => goToPost(post.id)} />))} */}
             </div>
         </div>
 

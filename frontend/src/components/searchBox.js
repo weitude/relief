@@ -11,7 +11,7 @@ const suffix = (
   />
 );
 const onSearch = (value) => console.log(value);
-const SearchBar = () => (
+const SearchBox = () => (
   <Space direction="vertical">
     <Search
       placeholder="Search for what?"
@@ -22,4 +22,4 @@ const SearchBar = () => (
     />
   </Space>
 );
-export default SearchBar;
+export default SearchBox;
