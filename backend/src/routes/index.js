@@ -4,10 +4,10 @@ import { User } from '../models/user'
 
 const router = express.Router()
 
-const CreateUser = async (res, name, email, hash, rule) => {
+const CreateUser = async (res, name, email, hash, role) => {
 	console.log(name)
 	try{
-		User.create({name: name, email: email, hash: hash, rule: rule})
+		await User.create({name: name, email: email, hash: hash, role: role})
 		res.json({message: "success"})
 	}
 	catch (e) {
@@ -15,15 +15,15 @@ const CreateUser = async (res, name, email, hash, rule) => {
 	}
 }
 
-router.post('/login', (req, res) => {
-	let name = req.body.name
-	let email = req.body.email
-	let password = req.body.password
-	let rule = req.body.rule
+router.post('/SignUp', (req, res) => {
+	const name = req.body.name
+	const email = req.body.email
+	const password = req.body.password
+	const role = req.body.role
 
-	var hash = sha256(password);
-	
-	CreateUser(res, name, email, hash, rule)
+	const hash = sha256(password);
+
+	CreateUser(res, name, email, hash, role)
 })
 
 export default router
