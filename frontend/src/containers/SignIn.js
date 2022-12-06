@@ -28,7 +28,7 @@ export default function SignIn() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
-            email: data.get('email'),
+            name: data.get('name'),
             password: data.get('password'),
         });
     };
@@ -59,7 +59,7 @@ export default function SignIn() {
                             alignItems: 'center',
                         }}
                     >
-                        <Typography component="h1" variant="h2" color="#a85c25"
+                        <Typography component="h1" variant="h2" color="#b3662e"
                                     sx={{ fontWeight: 'bold' ,mt:2,  mb: 6}}>
                             NTU Relief
                         </Typography>
@@ -74,10 +74,10 @@ export default function SignIn() {
                                 margin="normal"
                                 required
                                 fullWidth
-                                id="email"
-                                label="User ID"
-                                name="email"
-                                autoComplete="email"
+                                id="name"
+                                label="Name"
+                                name="name"
+                                autoComplete="name"
                                 autoFocus
                             />
                             <TextField
