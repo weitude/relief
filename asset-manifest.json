@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/relief/static/css/main.073c9b0a.css",
-    "main.js": "/relief/static/js/main.037e5659.js",
+    "main.js": "/relief/static/js/main.df454b4b.js",
     "static/js/787.cda612ba.chunk.js": "/relief/static/js/787.cda612ba.chunk.js",
     "static/media/ragdoll.jpg": "/relief/static/media/ragdoll.378bb3985362200ae9f5.jpg",
     "index.html": "/relief/index.html",
     "main.073c9b0a.css.map": "/relief/static/css/main.073c9b0a.css.map",
-    "main.037e5659.js.map": "/relief/static/js/main.037e5659.js.map",
+    "main.df454b4b.js.map": "/relief/static/js/main.df454b4b.js.map",
     "787.cda612ba.chunk.js.map": "/relief/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.037e5659.js"
+    "static/js/main.df454b4b.js"
   ]
 }
