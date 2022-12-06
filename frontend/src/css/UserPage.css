@@ -1,0 +1,33 @@
+.Title{
+    background-color: #BBA996;
+}
+
+.Content{
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    background-color: #DACEBD;
+    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: auto;
+    justify-content: center;
+    box-shadow: 2px 2px 0px 2px #BBA996;
+}
+
+.SearchBar{
+    width: 90%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 10px;
+}
+.Ques_Text{
+    height: 200px;
+    margin: 2px;
+}
