@@ -12,4 +12,4 @@ app.use(express.urlencoded({extended: true}));
 app.use('/api', routes);
 
 mongo.connect()
-app.listen(PORT, () => console.log(`relief listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`NTU Relief listening on port ${PORT}!`));

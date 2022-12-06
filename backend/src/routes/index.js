@@ -13,8 +13,6 @@ const CreateUser = async (res, name, email, hash, role) => {
         res.json({message: "Username exist", type: 2})
         return
     }
-
-
     try {
         await User.create({name: name, email: email, hash: hash, role: role})
         res.json({message: "success", type: 1})
@@ -24,22 +22,22 @@ const CreateUser = async (res, name, email, hash, role) => {
 }
 
 
-const Login = async (res, name, hash) =>{
-	const result = await User.find({name: name})
-		
-	if(result.length === 1){
-		console.log(hash)
-		if(result[0].hash === hash)
-			res.json({message: "success", content: result, type: 1})	
-		else
-			res.json({message: "Wrong password", content: [], type: 2})
-	}
-	else if(result.length > 1){
-		res.json({message: "really?", content: [], type: 3})
-	}
-	else{
-		res.json({message: "Can't find user", content: [], type: 0})
-	}
+const Login = async (res, name, hash) => {
+    const result = await User.find({name: name})
+
+    if (result.length === 1) {
+        console.log(hash)
+        if (result[0].hash === hash)
+            res.json({message: "success", content: result, type: 1})
+        else
+            res.json({message: "Wrong password", content: [], type: 2})
+    }
+    else if (result.length > 1) {
+        res.json({message: "really?", content: [], type: 3})
+    }
+    else {
+        res.json({message: "Can't find user", content: [], type: 0})
+    }
 
 }
 
@@ -62,26 +60,24 @@ const Reply = async (res, id, response) => {
 }
 
 const SearchCard = async (res, id) => {
-	try{
-		const result = await Card.findOne({id: id})
-		res.json({message: "success", content: result, type: 1})
-	}
-	catch{
-		res.json({message: "error", constent: [], type: 0})
-	}
+    try {
+        const result = await Card.findOne({id: id})
+        res.json({message: "success", content: result, type: 1})
+    } catch {
+        res.json({message: "error", constent: [], type: 0})
+    }
 }
 
 const Init = async (res) => {
-	try{
-		const result = await Card.find({})
-		.limit(30)
-		.sort("created_at")
+    try {
+        const result = await Card.find({})
+            .limit(30)
+            .sort("created_at")
 
-		res.json({message: "success", content: result, type: 1})
-	}
-	catch{
-		res.json({message: "error", content: [], type: 0})
-	}
+        res.json({message: "success", content: result, type: 1})
+    } catch {
+        res.json({message: "error", content: [], type: 0})
+    }
 }
 
 router.post('/signup', (req, res) => {
@@ -124,13 +120,12 @@ router.post('/reply', (req, res) => {
 })
 
 router.get('/opencard', (req, res) => {
-	const id = req.body.id
-
-	SearchCard(res, id)
+    const id = req.body.id
+    SearchCard(res, id)
 })
 
 router.get('/init', (req, res) => {
-	Init(res)
+    Init(res)
 })
 
 export default router
