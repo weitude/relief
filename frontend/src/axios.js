@@ -3,7 +3,7 @@ import axios from 'axios'
 const instance = axios.create({baseURL: 'http://localhost:4040/api'})
 
 
-const LogIn = async (name, password) =>
+const API_signin = async (name, password) =>
 {
     console.log(password)
     const {
@@ -18,7 +18,7 @@ const LogIn = async (name, password) =>
     return {message, content, type}
 }
 
-const SignUp_axios = async (name, email, password, role) =>
+const API_signup = async (name, email, password, role) =>
 {
     const {
         data: {message, type}
@@ -38,4 +38,4 @@ const SignUp_axios = async (name, email, password, role) =>
 //     return {msg, ans}
 // }
 
-export {LogIn, SignUp_axios}
+export {API_signin, API_signup}

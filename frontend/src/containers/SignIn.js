@@ -13,8 +13,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import ragdoll from '../images/ragdoll.jpg'
-import { LogIn } from '../axios'
+import { API_signin } from '../axios'
 import MyCopyright from '../components/MyCopyright'
+import {useRelief} from "./hooks/useRelief";
+import {useEffect} from "react";
 
 const theme = createTheme({
     palette: {
@@ -25,20 +27,58 @@ const theme = createTheme({
 });
 
 export default function SignIn() {
-    const handleSubmit = async (event) => {
+
+    const {name, setName, passwd, setPasswd, setSignedIn, status, setStatus, displayStatus} = useRelief();
+
+    useEffect(() => {
+        displayStatus(status)
+    }, [status])
+    const handleLogin =async ()=>{
+        console.log("name", name, "passwd", passwd)
+        const ret = await API_signin(name, passwd)
+        console.log(ret)
+        if(ret.type === 1)
+        {
+            console.log(ret.content)
+
+            if (ret.content[0].role === "user" )
+            {
+                setStatus({type: "success", msg: "Login!"})
+
+                setSignedIn(1)
+            }
+            else if (ret.content[0].role === "admin" )
+            {
+                setStatus({type: "success", msg: "Login!"})
+
+                setSignedIn(2)
+            }
+
+        }
+        else
+        {
+            setStatus({type: "error", msg: "Wrong name or password!"})
+
+        }
+    }
+    /*const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
-            name: data.get('name'),
+            name: name,
             password: data.get('password'),
         });
+        if (!name || !password)
+        {
+
+        }
 
         const name = data.get('email');
         const password = data.get('password')
         const temp = await LogIn(name, password)
 
         console.log(temp)
-    };
+    };*/
 
     return (
         <ThemeProvider theme={theme}>
@@ -76,7 +116,8 @@ export default function SignIn() {
                         <Typography component="h1" variant="h5">
                             Sign in
                         </Typography>
-                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 1}}>
+                        {/*<Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 1}}>*/}
+                        <Box component="form" noValidate sx={{mt: 1}}>
                             <TextField
                                 margin="normal"
                                 required
@@ -86,6 +127,7 @@ export default function SignIn() {
                                 name="name"
                                 autoComplete="name"
                                 autoFocus
+                                onChange={(e) => setName(e.target.value)}
                             />
                             <TextField
                                 margin="normal"
@@ -96,22 +138,25 @@ export default function SignIn() {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
+                                onChange={(e) => setPasswd(e.target.value)}
+
                             />
                             <FormControlLabel
                                 control={<Checkbox value="remember" color="primary"/>}
                                 label="Remember me"
                             />
                             <Button
-                                type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{mt: 3, mb: 2}}
+                                onClick={handleLogin}
+                                disabled={!name || !passwd}
                             >
                                 Login
                             </Button>
                             <Grid container justifyContent="flex-end">
                                 <Grid item>
-                                    <Link href="./#/signup" variant="body2">
+                                    <Link href="/relief/#/signup" variant="body2">
                                         {"Don't have an account? Sign Up"}
                                     </Link>
                                 </Grid>

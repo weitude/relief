@@ -7,9 +7,9 @@ import {ReliefProvider} from "./containers/hooks/useRelief";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ReliefProvider>
-    <App />
-  </ReliefProvider>
+    <ReliefProvider>
+        <App/>
+    </ReliefProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

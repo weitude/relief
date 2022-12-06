@@ -8,12 +8,15 @@ const ReliefProvider = (props) => {
     const LOCALSTORAGE_KEY = "save-me";
     const savedMe = localStorage.getItem(LOCALSTORAGE_KEY);
     const [status, setStatus] = useState({});
-    const [me, setMe] = useState(savedMe || "");
-    const [signedIn, setSignedIn] = useState(false);
+    const [name, setName] = useState( "");
+    const [mail, setMail] = useState( "");
+    const [passwd, setPasswd] = useState( "");
+    // const [name, setName] = useState(savedMe || "");
+    const [signedIn, setSignedIn] = useState(0);
 
     useEffect(() => {
         if (signedIn) {
-            localStorage.setItem(LOCALSTORAGE_KEY, me);
+            localStorage.setItem(LOCALSTORAGE_KEY, name);
         }
     }, [signedIn]);
 
@@ -37,7 +40,8 @@ const ReliefProvider = (props) => {
     return (
         <ReliefContext.Provider
             value={{
-                status, me, setMe, signedIn, setSignedIn
+                passwd, setPasswd,mail, setMail,
+               name, status,setName, signedIn, setSignedIn,setStatus, displayStatus
             }}
             {...props}
         />

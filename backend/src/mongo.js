@@ -9,10 +9,9 @@ export default {
             process.exit(1);
         }
         mongoose.connect(process.env.MONGO_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+            dbName: "reliefDB",
         })
-        .then((res) => console.log("mongo db connection created"));
+        .then(() => console.log("mongo db connection created"));
         mongoose.connection.on("error", console.error.bind(console, 'connection error:'));
     }
 };
