@@ -1,5 +1,7 @@
 import express from 'express'
+import crypto from 'crypto'
 import { sha256 } from 'js-sha256';
+import { Base64 } from 'js-base64';
 import { User } from '../models/user'
 import { Card } from '../models/Card'
 
@@ -64,10 +66,12 @@ router.get('/signin', (req, res) => {
 })
 
 router.post('/postcard', (req, res) => {
+	const buf = crypto.randomBytes(8);
+	const id = Base64.encode(buf)
+	
 	const title = req.body.title
 	const question = req.body.question
 	const tag = req.body.tag
-	const id = req.body.id
 
 	PostCard(res, title, question, tag, id)
 })
