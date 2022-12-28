@@ -15,7 +15,7 @@ const NewPost = () => {
     }
     
     const handleSubmit = () => {
-        API_postcard(title, content, chosenTag);
+        API_post(title, content, chosenTag);
         handleClose();
     }
     

@@ -32,19 +32,10 @@ const API_signup = async (name, email, password, role) =>
     return {message, type}
 }
 
-const API_postcard = async (title, question, tag, id) => {
-    const { data: {message, type} } = await instance.post('/postcard', {
-        title: title,
-        question: question,
-        tag: tag,
-    })
-    return {message, type};
-}
-
 // const restart = async () =>
 // {
 //     const {data: {msg, ans}} = await instance.post('/restart')
 //     return {msg, ans}
 // }
 
-export {API_signin, API_signup, API_postcard}
+export {API_signin, API_signup}
