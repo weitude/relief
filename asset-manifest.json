@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/relief/static/css/main.01d84f5a.css",
-    "main.js": "/relief/static/js/main.54bc032e.js",
-    "static/js/787.cda612ba.chunk.js": "/relief/static/js/787.cda612ba.chunk.js",
-    "static/media/ragdoll.jpg": "/relief/static/media/ragdoll.378bb3985362200ae9f5.jpg",
-    "index.html": "/relief/index.html",
-    "main.01d84f5a.css.map": "/relief/static/css/main.01d84f5a.css.map",
-    "main.54bc032e.js.map": "/relief/static/js/main.54bc032e.js.map",
-    "787.cda612ba.chunk.js.map": "/relief/static/js/787.cda612ba.chunk.js.map"
+    "main.css": "/static/css/main.01d84f5a.css",
+    "main.js": "/static/js/main.970f381e.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/ragdoll.jpg": "/static/media/ragdoll.378bb3985362200ae9f5.jpg",
+    "index.html": "/index.html",
+    "main.01d84f5a.css.map": "/static/css/main.01d84f5a.css.map",
+    "main.970f381e.js.map": "/static/js/main.970f381e.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.01d84f5a.css",
-    "static/js/main.54bc032e.js"
+    "static/js/main.970f381e.js"
   ]
 }
