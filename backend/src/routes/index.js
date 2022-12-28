@@ -83,6 +83,16 @@ const Init = async (res) => {
   }
 };
 
+const Pormote = async (res, name) => {
+  try {
+    await User.updateOne({ name: name }, { $set: { role: "admin" } });
+
+    res.json({ message: "success", type: 1 });
+  } catch {
+    res.json({ message: "error", type: 0 });
+  }
+};
+
 router.post("/signup", (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
@@ -129,6 +139,11 @@ router.get("/opencard", (req, res) => {
 
 router.get("/init", (req, res) => {
   Init(res);
+});
+
+router.post("/promote", (req, res) => {
+  const name = req.body.name;
+  Pormote(res, name);
 });
 
 export default router;
