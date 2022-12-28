@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://weitude.github.io/relief/#",
+  "homepage": "https://nturelief.me/#",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.8.0",

@@ -41,25 +41,6 @@ export default function SignUp() {
         console.log(ret)
 
     }
-    /*const handleSubmit = async (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            name: data.get('name'),
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-
-        const name = data.get('name')
-        const email = data.get('email')
-        const password = data.get('password')
-
-        const temp = await SignUp_axios(name, email, password, "user")
-        console.log(temp)
-        window.location.href = "."
-
-    };*/
-
 
     return (
         <ThemeProvider theme={theme}>
