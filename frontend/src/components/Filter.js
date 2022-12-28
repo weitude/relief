@@ -1,22 +1,17 @@
 
-import { useEffect, useState, filterChange, useDispatch } from "react";
+import { useState, filterChange, useDispatch } from "react";
+import SelectSearch from 'react-select-search';
+
 
 const Filter = () => {
-    const [filter, setFilter] = useState('all');
+    const options = [
+        {name: 'NoReply', value: 'not'},
+        {name: 'Joy', value: 'joy'},
+    ];
 
-    const handleChange = (event) => {
-        setFilter(event.target.value);
-    };
-
-
-    const style = {
-        marginBottom: 10,
-    };
 
     return (
-        <div style={style}>
-            fitler <input value={filter} onChange={handleChange} />
-        </div>
+       <SelectSearch options={options} value="sv" name="tag" placeholder="Choose tags" />
     );
 }
 

@@ -13,6 +13,12 @@ const ReliefProvider = (props) => {
     // const [name, setName] = useState(savedMe || "");
     const [signedIn, setSignedIn] = useState(0);
 
+    const [chosenTag, setchosenTag] = useState([]);
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const [createNewPost, setCreateNewPost] = useState(false);
+
+
     useEffect(() => {
         if (signedIn) {
             localStorage.setItem(LOCALSTORAGE_KEY, name);
@@ -40,7 +46,12 @@ const ReliefProvider = (props) => {
         <ReliefContext.Provider
             value={{
                 passwd, setPasswd, mail, setMail,
-                name, status, setName, signedIn, setSignedIn, setStatus, displayStatus
+                name, status, setName, signedIn, setSignedIn, setStatus, displayStatus,
+                
+                chosenTag, setchosenTag, 
+                title, setTitle, 
+                content, setContent, 
+                createNewPost, setCreateNewPost
             }}
             {...props}
         />

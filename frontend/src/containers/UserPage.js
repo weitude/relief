@@ -2,8 +2,15 @@ import SearchBox from "../components/searchBox";
 import styled from "styled-components";
 import Ques from "../components/Ques";
 import Filter from "../components/Filter";
-
+import NewPost from "../components/NewPost";
 import "../css/UserPage.css"
+import { useState } from "react";
+import AddIcon from '@mui/icons-material/Add';
+import { IconButton } from '@mui/material';
+import { useRelief } from "./hooks/useRelief";
+
+
+
 
 
 const Title = styled.h1`
@@ -15,7 +22,11 @@ const Title = styled.h1`
 
 
 const UserPage = () =>{
+    const {createNewPost, setCreateNewPost} = useRelief();
 
+    const handleOpen = () => {
+        setCreateNewPost(true);
+    }
     return(
         <div>
             <div className="Title">
@@ -26,6 +37,14 @@ const UserPage = () =>{
             </div>
             <div className="Content">
                 <Ques />
+            </div>
+            { createNewPost ?
+                <NewPost createNewPost={createNewPost} setCreateNewPost={setCreateNewPost}/> : ''
+            }
+            <div className="Footer">
+                <IconButton id='addBtn' onClick={handleOpen}>
+                    <AddIcon sx={ {fontSize: 50 }}/>
+                </IconButton>
             </div>
         </div>
 
