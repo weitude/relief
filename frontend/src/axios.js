@@ -45,4 +45,4 @@ const API_post = async (title, question, tag) => {
 //     return {msg, ans}
 // }
 
-export { API_signin, API_signup };
+export { API_signin, API_signup, API_post };
