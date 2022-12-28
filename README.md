@@ -1,3 +1,15 @@
 # NTU Relief
 
-官網：https://weitude.github.io/relief
++ frontend
+
+  https://nturelief.me
+
+
++ backend
+
+  https://nturelief.up.railway.app
+
+
++ backend health check
+
+  https://nturelief.up.railway.app/api/health
