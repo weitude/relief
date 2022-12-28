@@ -2,8 +2,8 @@ import express from 'express'
 import crypto from 'crypto'
 import {sha256} from 'js-sha256';
 import {Base64} from 'js-base64';
-import {User} from '../models/User'
-import {Card} from '../models/Card'
+import {User} from '../models/User.js'
+import {Card} from '../models/Card.js'
 
 const router = express.Router()
 

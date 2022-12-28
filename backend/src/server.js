@@ -1,7 +1,7 @@
 import express from 'express';
-import routes from './routes/index'
+import routes from './routes/index.js'
 import cors from 'cors';
-import mongo from './mongo'
+import mongo from './mongo.js'
 
 const app = express()
 const PORT = process.env.PORT || 4040;

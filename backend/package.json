@@ -1,5 +1,6 @@
 {
   "name": "backend",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -23,6 +24,7 @@
     "@babel/preset-env": "^7.20.2"
   },
   "scripts": {
+    "start:prod": "node src/server.js",
     "server": "nodemon src/server.js --ext js --exec babel-node"
   }
 }
