@@ -1,5 +1,5 @@
 import MultipleSelectCheckmarks from './MultiSelect';
-import { API_postcard } from '../axios'
+import { API_post } from '../axios'
 
 import { Modal } from '@mui/material';
 import { TextField } from '@mui/material';
