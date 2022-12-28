@@ -29,6 +29,16 @@ const API_signup = async (name, email, password, role) => {
   return { message, type };
 };
 
+const API_opencard = async (id) => {
+  const {
+    data: { message, content, type },
+  } = await instance.get("/opencard", {
+    id: id,
+  });
+
+  return { message, content, type };
+};
+
 const API_post = async (title, question, tag) => {
   const {
     data: { message, content, type },
@@ -58,6 +68,20 @@ const API_promote = async (name) => {
   } = await instance.post("/promote", {
     name: name,
   });
+
+  return { message, type };
+};
+
+const API_serach = async (target, tag, isreply) => {
+  const {
+    data: { message, content, type },
+  } = await instance.get("/search", {
+    target: target,
+    tag: tag,
+    isreply: isreply,
+  });
+
+  return { message, content, type };
 };
 
 // const restart = async () =>
@@ -66,4 +90,12 @@ const API_promote = async (name) => {
 //     return {msg, ans}
 // }
 
-export { API_signin, API_signup, API_post, API_reply, API_promote };
+export {
+  API_signin,
+  API_signup,
+  API_opencard,
+  API_post,
+  API_reply,
+  API_promote,
+  API_serach,
+};

@@ -64,7 +64,7 @@ const Reply = async (res, id, response) => {
   }
 };
 
-const SearchCard = async (res, id) => {
+const SearchByID = async (res, id) => {
   try {
     const result = await Card.findOne({ id: id });
     res.json({ message: "success", content: result, type: 1 });
@@ -75,7 +75,7 @@ const SearchCard = async (res, id) => {
 
 const Init = async (res) => {
   try {
-    const result = await Card.find({}).limit(30).sort("created_at");
+    const result = await Card.find({}).limit(66).sort("created_at");
 
     res.json({ message: "success", content: result, type: 1 });
   } catch {
@@ -90,6 +90,30 @@ const Pormote = async (res, name) => {
     res.json({ message: "success", type: 1 });
   } catch {
     res.json({ message: "error", type: 0 });
+  }
+};
+
+const SearchCard = async (res, target, tag, isreply) => {
+  try {
+    if (tag.length == 0) tag = ["others"];
+    if (target.length == 0) target = ".";
+
+    const result = await Card.find({
+      $and: [
+        {
+          $or: [
+            { title: { $regex: ".*" + target + "*." } },
+            { tag: { $in: tag } },
+          ],
+        },
+        { replied: isreply },
+      ],
+    });
+
+    console.log(result);
+    res.json({ message: "success", content: result, type: 1 });
+  } catch {
+    res.json({ message: "error", content: [], type: 0 });
   }
 };
 
@@ -120,7 +144,7 @@ router.post("/postcard", (req, res) => {
 
   const title = req.body.title;
   const question = req.body.question;
-  const tag = req.body.tag;
+  const tag = [...req.body.tag, "others"];
 
   PostCard(res, title, question, tag, id);
 });
@@ -134,7 +158,7 @@ router.post("/reply", (req, res) => {
 
 router.get("/opencard", (req, res) => {
   const id = req.body.id;
-  SearchCard(res, id);
+  SearchByID(res, id);
 });
 
 router.get("/init", (req, res) => {
@@ -147,8 +171,18 @@ router.post("/promote", (req, res) => {
   Pormote(res, name);
 });
 
+<<<<<<< HEAD
+router.get("/search", (req, res) => {
+  const target = req.body.target;
+  const tag = req.body.tag;
+  const isreply = req.body.isreply;
+
+  SearchCard(res, target, tag, isreply);
+});
+=======
 router.get("/health", (_, res)=>{
   res.send("<h1>NTU Relief health check</h1>")
 })
+>>>>>>> 00eca257ef3568d23ad8ca57c0ee9b3046cb4926
 
 export default router;
