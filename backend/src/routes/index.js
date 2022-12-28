@@ -69,7 +69,7 @@ const SearchCard = async (res, id) => {
     const result = await Card.findOne({ id: id });
     res.json({ message: "success", content: result, type: 1 });
   } catch {
-    res.json({ message: "error", constent: [], type: 0 });
+    res.json({ message: "error", content: [], type: 0 });
   }
 };
 
@@ -130,5 +130,9 @@ router.get("/opencard", (req, res) => {
 router.get("/init", (req, res) => {
   Init(res);
 });
+
+router.get("/health", (_, res)=>{
+  res.send("<h1>NTU Relief health check</h1>")
+})
 
 export default router;
