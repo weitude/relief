@@ -9,6 +9,6 @@ COPY backend/src ./src
 
 RUN yarn install --production
 
-EXPOSE 4000
+EXPOSE 4040
 
 CMD yarn start:prod
