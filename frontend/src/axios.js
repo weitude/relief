@@ -37,6 +37,19 @@ const API_post = async (title, question, tag) => {
     question: question,
     tag: tag,
   });
+
+  return { message, content, type };
+};
+
+const API_reply = async (id, response) => {
+  const {
+    data: { message, content, type },
+  } = await instance.post("/reply", {
+    id: id,
+    response: response,
+  });
+
+  return { message, content, type };
 };
 
 // const restart = async () =>
@@ -45,4 +58,4 @@ const API_post = async (title, question, tag) => {
 //     return {msg, ans}
 // }
 
-export { API_signin, API_signup, API_post };
+export { API_signin, API_signup, API_post, API_reply };

@@ -54,13 +54,13 @@ const PostCard = async (res, title, question, tag, id) => {
 
 const Reply = async (res, id, response) => {
   try {
-    await Card.updateOne(
+    const result = await Card.updateOne(
       { id: id },
       { $set: { response: response, replied: true } }
     );
-    res.json({ message: "success", type: 1 });
+    res.json({ message: "success", content: result, type: 1 });
   } catch {
-    res.json({ message: "error", type: 0 });
+    res.json({ message: "error", content: [], type: 0 });
   }
 };
 
