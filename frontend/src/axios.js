@@ -52,10 +52,18 @@ const API_reply = async (id, response) => {
   return { message, content, type };
 };
 
+const API_promote = async (name) => {
+  const {
+    data: { message, type },
+  } = await instance.post("/promote", {
+    name: name,
+  });
+};
+
 // const restart = async () =>
 // {
 //     const {data: {msg, ans}} = await instance.post('/restart')
 //     return {msg, ans}
 // }
 
-export { API_signin, API_signup, API_post, API_reply };
+export { API_signin, API_signup, API_post, API_reply, API_promote };
