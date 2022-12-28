@@ -165,13 +165,11 @@ router.get("/init", (req, res) => {
   Init(res);
 });
 
-
 router.post("/promote", (req, res) => {
   const name = req.body.name;
   Pormote(res, name);
 });
 
-<<<<<<< HEAD
 router.get("/search", (req, res) => {
   const target = req.body.target;
   const tag = req.body.tag;
@@ -179,10 +177,9 @@ router.get("/search", (req, res) => {
 
   SearchCard(res, target, tag, isreply);
 });
-=======
-router.get("/health", (_, res)=>{
-  res.send("<h1>NTU Relief health check</h1>")
-})
->>>>>>> 00eca257ef3568d23ad8ca57c0ee9b3046cb4926
+
+router.get("/health", (_, res) => {
+  res.send("<h1>NTU Relief health check</h1>");
+});
 
 export default router;
