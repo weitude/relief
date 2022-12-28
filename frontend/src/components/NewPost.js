@@ -33,7 +33,7 @@ const NewPost = () => {
                         <MultipleSelectCheckmarks chosenTag={chosenTag} setchosenTag={setchosenTag}/>
                     </div>
                     <div className="form_item_footer">
-                        <Button variant="contained" sx={{width: '100%'}} onClick={handleSubmit}>Submit</Button>
+                        <Button variant="contained" sx={{width: '100%'}} onClick={handleSubmit} disabled={!title || !content }>Submit</Button>
                     </div>
                 </form>
             </div>
