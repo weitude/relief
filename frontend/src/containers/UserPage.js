@@ -1,13 +1,16 @@
 import SearchBox from "../components/SearchBox";
 import styled from "styled-components";
 import Ques from "../components/Ques";
-import Filter from "../components/Filter";
 import NewPost from "../components/NewPost";
 import "../css/UserPage.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { API_search } from "../axios";
 import AddIcon from '@mui/icons-material/Add';
 import { IconButton } from '@mui/material';
 import { useRelief } from "../hooks/useRelief";
+// import { MasonryInfiniteGrid } from "@egjs/react-infinitegrid";
+
+
 
 const Title = styled.h1`
     font-size: 80px;
@@ -20,6 +23,15 @@ const Title = styled.h1`
 const UserPage = () =>{
     const {createNewPost, setCreateNewPost} = useRelief();
 
+    const [quesArr, setQuesArr] = useState( async () => (await (API_search('', [], false)).content) );
+    
+    const userGetData = async () => {
+        const datas = await setQuesArr((await API_search('', [], false)).content);
+    }
+
+    useEffect(() => { userGetData() }, []);
+      
+    
     const handleOpen = () => {
         setCreateNewPost(true);
     }
@@ -32,7 +44,12 @@ const UserPage = () =>{
                 <SearchBox/>
             </div>
             <div className="Content">
-                <Ques />
+                {
+                    quesArr.length > 0 ?
+                        quesArr.map((item, i) => (<div id={"content_container_"+{i}}><Ques item={item}/></div>) ) 
+                        :
+                        ''
+                }
             </div>
             { createNewPost ?
                 <NewPost createNewPost={createNewPost} setCreateNewPost={setCreateNewPost}/> : ''

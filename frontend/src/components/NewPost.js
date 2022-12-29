@@ -1,9 +1,10 @@
 import MultipleSelectCheckmarks from './MultiSelect';
-import {API_post} from '../axios'
 
 import {Modal, TextField} from '@mui/material';
 import {Button} from "antd";
 import {useRelief} from '../hooks/useRelief';
+import { API_post } from '../axios'
+
 
 const NewPost = () => {
     const {
@@ -31,15 +32,14 @@ const NewPost = () => {
             <div className="Create">
                 <form className="create_form">
                     <div className="form_item">
-                        <TextField id="newPost_title" label="Title" variant="standard" required="true"
-                                   sx={{width: '100%'}} onChange={(e) => setTitle(e.target.value)}/>
+
+                        <TextField id="newPost_title" label="Title" variant="outlined" required={true} sx={{width: '100%'}} onChange={(e) => setTitle(e.target.value)} />
                     </div>
                     <div className="form_item">
-                        <TextField id="newPost_content" label="Content" variant="outlined" required="true" multiline
-                                   maxrows={100} sx={{width: '100%'}} onChange={(e) => setContent(e.target.value)}/>
+                        <TextField id="newPost_content" label="Content" variant="outlined" required={true} multiline maxrows={100} sx={{width: '100%'}} onChange={(e) => setContent(e.target.value)}/>
                     </div>
                     <div className="form_item">
-                        <MultipleSelectCheckmarks chosenTag={chosenTag} setchosenTag={setChosenTag}/>
+                        <MultipleSelectCheckmarks />
                     </div>
                     <div className="form_item_footer">
                         <Button variant="contained" sx={{width: '100%'}} onClick={handleSubmit}
