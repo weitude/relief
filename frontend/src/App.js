@@ -11,10 +11,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
-                <Route path="/post/:id" element={
-                    <Post/>
-                }/>
-
+                <Route path="/post/:id" element={<Post/>}/>
             </Routes>
         </HashRouter>
     );
