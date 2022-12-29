@@ -33,7 +33,7 @@ export default function SignIn() {
     useEffect(() => {
         displayStatus(status)
     }, [status])
-    const handleLogin =async ()=>{
+    const handleUserLogin =async ()=>{
         console.log("name", name, "passwd", passwd)
         const ret = await API_signin(name, passwd)
         console.log(ret)
@@ -59,6 +59,10 @@ export default function SignIn() {
             setStatus({type: "error", msg: "Wrong name or password!"})
 
         }
+    }
+
+    const handleGuestLogin =()=>{
+        setSignedIn(3)
     }
 
     return (
@@ -88,7 +92,7 @@ export default function SignIn() {
                         }}
                     >
                         <Typography component="h1" variant="h2" color="#b3662e"
-                                    sx={{ fontWeight: 'bold' ,mt:2,  mb: 6}}>
+                                    sx={{ fontWeight: 'bold',  mb: 3}}>
                             NTU Relief
                         </Typography>
                         <Avatar sx={{m: 1, bgcolor: '#c47a45'}}>
@@ -122,18 +126,22 @@ export default function SignIn() {
                                 onChange={(e) => setPasswd(e.target.value)}
 
                             />
-                            <FormControlLabel
-                                control={<Checkbox value="remember" color="primary"/>}
-                                label="Remember me"
-                            />
                             <Button
                                 fullWidth
                                 variant="contained"
                                 sx={{mt: 3, mb: 2}}
-                                onClick={handleLogin}
+                                onClick={handleUserLogin}
                                 disabled={!name || !passwd}
                             >
                                 Login
+                            </Button>
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                sx={{mt: 3, mb: 2}}
+                                onClick={handleGuestLogin}
+                            >
+                                Login as guest
                             </Button>
                             <Grid container justifyContent="flex-end">
                                 <Grid item>

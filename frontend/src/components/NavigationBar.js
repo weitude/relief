@@ -66,11 +66,20 @@ export default function NavigationBar() {
         });
     };
 
+    const renderName = () => {
+        if (signedIn === 1)
+            return "(User) " + name
+        else if (signedIn === 2)
+            return "(Admin) " + name
+        else if (signedIn === 3)
+            return "(Guest)"
+    }
+
     return (
         <ThemeProvider theme={theme}>
             <Box>
                 <AppBar position="static">
-                    <Toolbar sx={{ justifyContent: "space-between"}}>
+                    <Toolbar sx={{justifyContent: "space-between"}}>
                         <IconButton
                             // size="small"
                             edge="start"
@@ -147,7 +156,7 @@ export default function NavigationBar() {
                             // sx={{ml: auto}}
                             // sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
                         >
-                            {signedIn ===1? "(User) "  : "(Admin) "}{name}
+                            {renderName()}
                         </Typography>
                     </Toolbar>
                 </AppBar>

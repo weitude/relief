@@ -48,17 +48,17 @@ export default function SignUp() {
 
         if (name.length> 8)
         {
-            window.alert("Name length should <= 8!")
+            window.alert("Name length should <= 8")
             return
         }
-        if (!mail.includes("@"))
+        if (!mail.includes("@ntu.edu.tw"))
         {
-            window.alert("Not a valid email!")
+            window.alert("Please use a ntu email")
             return
         }
         if (passwd.length < 3)
         {
-            window.alert("Password length should >= 3!")
+            window.alert("Password length should >= 3")
             return
         }
         const ret = await API_signup(name, mail, passwd, "user")

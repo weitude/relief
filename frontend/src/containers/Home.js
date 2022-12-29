@@ -11,7 +11,7 @@ export default function Home() {
     const HomePage = (role) => {
         if (role === 0)
             return <SignIn/>
-        if (role === 1)
+        if (role === 1 || role === 3)
             return <UserPage/>
         if (role === 2)
             return <AdminPage/>
