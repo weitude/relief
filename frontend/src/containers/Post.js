@@ -2,7 +2,7 @@ import styled from "styled-components"
 import {API_opencard} from "../axios";
 import {useParams} from "react-router-dom";
 import {useRelief} from "../hooks/useRelief";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import NavigationBar from "../components/NavigationBar";
 
 const Title = styled.h1`
@@ -29,25 +29,45 @@ const Header = styled.div`
   justify-content: space-around;
 `
 
-const Post = (data) => {
-    const {title, que, res, tag} = data;
+const Post = () => {
     const {id} = useParams()
     const {signedIn} = useRelief();
 
+    const [title, setTitle] = useState("");
+    const [question, setQuestion] = useState("");
+    const [response, setResponse] = useState("");
+
+    let info = {};
+
     console.log("id:", id)
     const openCard = async () => {
-        const ret = await API_opencard(id, signedIn === 2);
-        console.log(ret)
+        info = (await API_opencard(id, signedIn === 2)).content;
+        console.log("openCard:", info)
+        setTitle(info.title)
+        setQuestion(info.question)
+        setResponse(info.response)
     }
 
     useEffect(() => {
         openCard()
+        console.log(info)
+
     }, [])
+
+    /*useEffect(() => {
+        if (info){
+            setTitle(info.title)
+            console.log("info:", info)
+        }
+    }, [info])*/
 
     return (
         <>
             <NavigationBar/>
-            <h1>hi</h1>
+            <h1>{title}</h1>
+            <h3>{question}</h3>
+            <h3>{response}</h3>
+
         </>
         /*<Div>
             <Header>

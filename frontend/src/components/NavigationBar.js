@@ -71,7 +71,7 @@ export default function NavigationBar() {
             return "(User) " + name
         else if (signedIn === 2)
             return "(Admin) " + name
-        else if (signedIn === 3)
+        else
             return "(Guest)"
     }
 
