@@ -20,7 +20,7 @@ import Typography from "@mui/material/Typography";
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#f3b58a',
+            main: 'rgba(206,144,92,0.53)',
         }
     }
 });
@@ -92,7 +92,7 @@ export default function NavigationBar() {
 
     return (
         <ThemeProvider theme={theme}>
-            <Box >
+            <Box>
                 <AppBar position="static">
                     <Toolbar sx={{ justifyContent: "space-between"}}>
                         <IconButton
@@ -167,7 +167,7 @@ export default function NavigationBar() {
                             variant="h5"
                             // noWrap
                             // component="div"
-                            color="#b3662e"
+                            color="#8B5128"
                             // sx={{ml: auto}}
                             // sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
                         >

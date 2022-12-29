@@ -18,8 +18,8 @@ const Ques = (item) => {
         <Card
             hoverable
             style={{
-                width: 240,
-                height: 300,
+                width: 290,
+                height: 290,
                 margin: 10,
             }}>
             <Meta title={title}/>

@@ -1,23 +1,29 @@
+body {background-color: rgba(192, 135, 100, 0.49);}
+.box {
+    height: 90vh;
+    margin-top: 10px;
+    overflow: scroll;
+}
+
 .Title{
     background-color: #BBA996;
     justify-content: center;
 }
 
 .Content{
-    margin: 0 auto;
-    width: 80%;
-    height: 100%;
-    background-color: #DACEBD;
-    padding: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 25px;
+    /*margin: 0 auto;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*background-color: #DACEBD;*/
+    padding: 20px;
+    /*border-radius: 25px;*/
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: auto;
+    /*align-items: auto;*/
+    gap: 30px;
     justify-content: center;
-    box-shadow: 2px 2px 0px 2px #BBA996;
+    /*box-shadow: 2px 2px 0px 2px #BBA996;*/
 }
 
 .SearchBar{
@@ -28,15 +34,10 @@
     justify-content: flex-end;
     margin: 10px;
 }
+
 .Ques_Text{
     height: 200px;
     margin: 2px;
-}
-
-.Footer{
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 100px;
 }
 
 .Create{
@@ -51,9 +52,21 @@
     padding: 20px;
 }
 
+.Footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 100px;
+}
+
 #addBtn{
-    background-color: rgba(218, 206, 189, 0.7);
-    margin: 10px;
+    /*margin-left: 100px;*/
+    margin-right: 35px;
+    margin-bottom: 30px;
+    background-color: rgba(192, 135, 100, 0.49);
+    /*margin: 25px;*/
 }
 
 .create_form{
