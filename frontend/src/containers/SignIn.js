@@ -15,7 +15,7 @@ import {createTheme, ThemeProvider} from '@mui/material/styles';
 import ragdoll from '../images/ragdoll.jpg'
 import { API_signin } from '../axios'
 import MyCopyright from '../components/MyCopyright'
-import {useRelief} from "./hooks/useRelief";
+import {useRelief} from "../hooks/useRelief";
 import {useEffect} from "react";
 
 const theme = createTheme({
@@ -61,24 +61,6 @@ export default function SignIn() {
 
         }
     }
-    /*const handleSubmit = async (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            name: name,
-            password: data.get('password'),
-        });
-        if (!name || !password)
-        {
-
-        }
-
-        const name = data.get('email');
-        const password = data.get('password')
-        const temp = await LogIn(name, password)
-
-        console.log(temp)
-    };*/
 
     return (
         <ThemeProvider theme={theme}>

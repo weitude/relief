@@ -1,4 +1,4 @@
-import SearchBox from "../components/searchBox";
+import SearchBox from "../components/SearchBox";
 import styled from "styled-components";
 import Ques from "../components/Ques";
 import Filter from "../components/Filter";
@@ -7,11 +7,7 @@ import "../css/UserPage.css"
 import { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import { IconButton } from '@mui/material';
-import { useRelief } from "./hooks/useRelief";
-
-
-
-
+import { useRelief } from "../hooks/useRelief";
 
 const Title = styled.h1`
     font-size: 80px;

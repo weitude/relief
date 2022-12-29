@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
-import { useRelief } from '../containers/hooks/useRelief';
+import { useRelief } from '../hooks/useRelief';
 
 
 const ITEM_HEIGHT = 48;
@@ -34,15 +34,15 @@ function getStyles(name, chosenTag, theme) {
 
 
 export default function MultipleSelect() {
-    const { chosenTag, setchosenTag } = useRelief();
+    const { chosenTag, setChosenTag } = useRelief();
     const theme = useTheme();
   
     const handleChange = (event) => {
       const {
         target: { value },
       } = event;
-      setchosenTag(
-        // On autofill we get a stringified value.
+      setChosenTag(
+        // On autofill, we get a stringified value.
         typeof value === 'string' ? value.split(',') : value,
       );
     };
@@ -66,15 +66,15 @@ export default function MultipleSelect() {
             )}
             MenuProps={MenuProps}
           >
-            {tags.map((name) => (
-              <MenuItem
-                key={name}
-                value={name}
-                style={getStyles(name, chosenTag, theme)}
-              >
-                {name}
-              </MenuItem>
-            ))}
+              {tags.map((name) => (
+                  <MenuItem
+                      key={name}
+                      value={name}
+                      style={getStyles(name, chosenTag, theme)}
+                  >
+                      {name}
+                  </MenuItem>
+              ))}
           </Select>
         </FormControl>
     );

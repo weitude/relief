@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import MyCopyright from '../components/MyCopyright'
 import { API_signup } from '../axios';
-import {useRelief} from "./hooks/useRelief";
+import {useRelief} from "../hooks/useRelief";
 
 const theme = createTheme({
     palette: {

@@ -72,7 +72,7 @@ const API_promote = async (name) => {
   return { message, type };
 };
 
-const API_serach = async (target, tag, isreply) => {
+const API_search = async (target, tag, isreply) => {
   const {
     data: { message, content, type },
   } = await instance.get("/search", {
@@ -97,5 +97,5 @@ export {
   API_post,
   API_reply,
   API_promote,
-  API_serach,
+  API_search,
 };
