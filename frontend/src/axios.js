@@ -31,11 +31,12 @@ const API_signup = async (name, email, password, role) => {
   return { message, type };
 };
 
-const API_opencard = async (id) => {
+const API_opencard = async (id, name) => {
   const {
     data: { message, content, type },
   } = await instance.get("/opencard", {
     id: id,
+    name: name,
   });
 
   return { message, content, type };

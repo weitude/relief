@@ -64,9 +64,12 @@ const Reply = async (res, id, response) => {
   }
 };
 
-const SearchByID = async (res, id) => {
+const SearchByID = async (res, id, name) => {
   try {
     const result = await Card.findOne({ id: id });
+    const user = await User.findOne({ name: name });
+    if (result.replied == false && user.role !== "admin")
+      res.json({ message: "error", content: [], type: 2 });
     res.json({ message: "success", content: result, type: 1 });
   } catch {
     res.json({ message: "error", content: [], type: 0 });
@@ -157,8 +160,9 @@ router.post("/reply", (req, res) => {
 });
 
 router.get("/opencard", (req, res) => {
+  const name = req.body.name;
   const id = req.body.id;
-  SearchByID(res, id);
+  SearchByID(res, id, name);
 });
 
 router.get("/init", (req, res) => {
