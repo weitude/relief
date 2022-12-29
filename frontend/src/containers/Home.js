@@ -20,12 +20,12 @@ export default function Home(){
     }
     else if (signedIn === 1)
     {
-        displayStatus(status);
+        // displayStatus(status);
         return <UserPage/>
     }
     else if (signedIn === 2)
     {
-        displayStatus(status);
+        // displayStatus(status);
         return <AdminPage/>
     }
 }
