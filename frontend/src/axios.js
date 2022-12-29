@@ -75,14 +75,17 @@ const API_promote = async (name) => {
 };
 
 const API_search = async (target, tag, isreply) => {
+  console.log("front1", target, tag, isreply);
   const {
     data: { message, content, type },
   } = await instance.get("/search", {
-    target: target,
-    tag: tag,
-    isreply: isreply,
+    params: {
+      target,
+      tag,
+      isreply,
+    },
   });
-
+  console.log("front2", message, content, type);
   return { message, content, type };
 };
 

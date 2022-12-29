@@ -171,9 +171,10 @@ router.post("/promote", (req, res) => {
 });
 
 router.get("/search", (req, res) => {
-  const target = req.body.target;
-  const tag = req.body.tag;
-  const isreply = req.body.isreply;
+  const target = req.query.target;
+  let tag = req.query.tag;
+  if (tag === undefined) tag = [];
+  const isreply = req.query.isreply;
 
   SearchCard(res, target, tag, isreply);
 });
