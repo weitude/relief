@@ -40,6 +40,7 @@ const Post = () => {
     let info = {};
 
     console.log("id:", id)
+
     const openCard = async () => {
         info = (await API_opencard(id, signedIn === 2)).content;
         console.log("openCard:", info)
@@ -61,6 +62,7 @@ const Post = () => {
         }
     }, [info])*/
 
+    
     return (
         <>
             <NavigationBar/>
