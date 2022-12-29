@@ -2,32 +2,26 @@ import SignIn from "./SignIn";
 import {useRelief} from "../hooks/useRelief";
 import UserPage from "./UserPage";
 import AdminPage from "./AdminPage";
-import {useEffect} from "react";
 import {useLocation} from "react-router-dom";
 
-export default function Home(){
+export default function Home() {
 
     const {signedIn, status, setStatus, displayStatus} = useRelief()
     const {state} = useLocation();
-
-
-    /*useEffect(() => {
-        displayStatus(status)
-    }, [status])*/
+    const HomePage = (role) => {
+        if (role === 0)
+            return <SignIn/>
+        if (role === 1)
+            return <UserPage/>
+        if (role === 2)
+            return <AdminPage/>
+    }
 
     console.log(signedIn)
-    if (signedIn === 0 || state?.signedIn === 0)
-    {
-        return <SignIn/>
+    if (state) {
+        return HomePage(state.signedIn)
     }
-    else if (signedIn === 1|| state?.signedIn === 1)
-    {
-        // displayStatus(status);
-        return <UserPage/>
-    }
-    else if (signedIn === 2|| state?.signedIn === 2)
-    {
-        // displayStatus(status);
-        return <AdminPage/>
+    else {
+        return HomePage(signedIn)
     }
 }

@@ -15,6 +15,7 @@ import {createTheme, ThemeProvider} from '@mui/material/styles';
 import MyCopyright from '../components/MyCopyright'
 import { API_signup } from '../axios';
 import {useRelief} from "../hooks/useRelief";
+import {useNavigate} from "react-router-dom";
 
 const theme = createTheme({
     palette: {
@@ -25,19 +26,43 @@ const theme = createTheme({
 });
 export default function SignUp() {
 
-    const {name, setName, passwd, setPasswd, mail, setMail} = useRelief();
+    const {name, setName, passwd,signedIn, setPasswd, mail, setMail} = useRelief();
 
     useEffect(() => {
         console.log("init signup")
         setName("")
-        setPasswd("")
         setMail("")
+        setPasswd("")
     },[])
 
+    const navigate = useNavigate();
+
+    const navigateToHome = () => {
+        navigate('/', {
+            state: {
+                signedIn: signedIn
+            }
+        });
+    };
     const handleSignUp = async () => {
-        console.log("handleSignUp")
-        window.location.href = "."
+
+        if (name.length> 8)
+        {
+            window.alert("Name length should <= 8!")
+            return
+        }
+        if (!mail.includes("@"))
+        {
+            window.alert("Not a valid email!")
+            return
+        }
+        if (passwd.length < 3)
+        {
+            window.alert("Password length should >= 3!")
+            return
+        }
         const ret = await API_signup(name, mail, passwd, "user")
+        navigateToHome()
         console.log(ret)
 
     }

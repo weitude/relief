@@ -8,8 +8,6 @@ import AddIcon from '@mui/icons-material/Add';
 import {IconButton} from '@mui/material';
 import {useRelief} from "../hooks/useRelief";
 import NavigationBar from "../components/NavigationBar";
-import {useNavigate} from "react-router-dom";
-// import { MasonryInfiniteGrid } from "@egjs/react-infinitegrid";
 
 /*
 const Title = styled.h1`
@@ -23,11 +21,11 @@ const Title = styled.h1`
 const UserPage = () => {
     const {createNewPost, setCreateNewPost} = useRelief();
 
-    const [quesArr, setQuesArr] = useState(async () => (await (API_search('', [], false)).content));
+    const [quesArr, setQuesArr] = useState(async () => (await (API_search('', [], true)).content));
 
     console.log("quesArr:", quesArr)
     const userGetData = async () => {
-        await setQuesArr((await API_search('', [], false)).content);
+        await setQuesArr((await API_search('', [], true)).content);
     }
 
     useEffect(() => {
