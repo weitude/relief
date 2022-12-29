@@ -1,5 +1,5 @@
 import SignIn from "./SignIn";
-import {useRelief} from "./hooks/useRelief";
+import {useRelief} from "../hooks/useRelief";
 import UserPage from "./UserPage";
 import AdminPage from "./AdminPage";
 import {useEffect} from "react";
@@ -28,5 +28,4 @@ export default function Home(){
         displayStatus(status);
         return <AdminPage/>
     }
-
 }

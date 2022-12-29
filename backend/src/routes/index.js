@@ -47,7 +47,7 @@ router.get("/signin", async (req, res) => {
 
 router.post("/postcard", async (req, res) => {
   const buf = crypto.randomBytes(8);
-  const id = Base64.encode(buf);
+  const id = Base64.encode(buf.toString());
   const title = req.body.title;
   const question = req.body.question;
   const tag = [...req.body.tag, "others"];
@@ -83,12 +83,12 @@ router.post("/reply", async (req, res) => {
 });
 
 router.get("/opencard", async (req, res) => {
-  const isadmin = req.body.isadmin;
-  const id = req.body.id;
+  const isAdmin = req.query.isAdmin;
+  const id = req.query.id;
 
   try {
     const result = await Card.findOne({ id: id });
-    if (result.replied == false && !isadmin)
+    if (result.replied === false && !isAdmin)
       res.json({ message: "error", content: [], type: 2 });
     res.json({ message: "success", content: result, type: 1 });
   } catch {
@@ -109,14 +109,14 @@ router.post("/promote", async (req, res) => {
 });
 
 router.get("/search", async (req, res) => {
-  const target = req.query.target;
+  let target = req.query.target;
   let tag = req.query.tag;
   if (tag === undefined) tag = [];
-  const isreply = req.query.isreply;
+  const isReply = req.query.isReply;
 
   try {
-    if (tag.length == 0) tag = ["others"];
-    if (target.length == 0) target = ".";
+    if (tag.length === 0) tag = ["others"];
+    if (target.length === 0) target = ".";
 
     const result = await Card.find({
       $and: [
@@ -126,7 +126,7 @@ router.get("/search", async (req, res) => {
             { tag: { $in: tag } },
           ],
         },
-        { replied: isreply },
+        { replied: isReply },
       ],
     }).sort("created_at");
 

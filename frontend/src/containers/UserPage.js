@@ -1,15 +1,14 @@
-import SearchBox from "../components/searchBox";
+import SearchBox from "../components/SearchBox";
 import styled from "styled-components";
 import Ques from "../components/Ques";
 import NewPost from "../components/NewPost";
 import "../css/UserPage.css"
-import { useRelief } from "./hooks/useRelief";
 import { useEffect, useState } from "react";
-import { API_serach } from "../axios";
-
+import { API_search } from "../axios";
 import AddIcon from '@mui/icons-material/Add';
 import { IconButton } from '@mui/material';
-import { MasonryInfiniteGrid } from "@egjs/react-infinitegrid";
+import { useRelief } from "../hooks/useRelief";
+// import { MasonryInfiniteGrid } from "@egjs/react-infinitegrid";
 
 
 
@@ -24,10 +23,10 @@ const Title = styled.h1`
 const UserPage = () =>{
     const {createNewPost, setCreateNewPost} = useRelief();
 
-    const [quesArr, setQuesArr] = useState( async () => (await (API_serach('', [], false)).content) );
+    const [quesArr, setQuesArr] = useState( async () => (await (API_search('', [], false)).content) );
     
     const userGetData = async () => {
-        const datas = await setQuesArr((await API_serach('', [], false)).content);
+        const datas = await setQuesArr((await API_search('', [], false)).content);
     }
 
     useEffect(() => { userGetData() }, []);
