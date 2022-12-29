@@ -108,9 +108,7 @@ const SearchCard = async (res, target, tag, isreply) => {
         },
         { replied: isreply },
       ],
-    })
-      .limit(66)
-      .sort("created_at");
+    }).sort("created_at");
 
     console.log(result);
     res.json({ message: "success", content: result, type: 1 });

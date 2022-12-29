@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const instance = axios.create({ baseURL: "https://nturelief.up.railway.app/api/" });
+const instance = axios.create({
+  baseURL: "https://nturelief.up.railway.app/api/",
+});
 
 const API_signin = async (name, password) => {
   console.log(password);
@@ -72,7 +74,7 @@ const API_promote = async (name) => {
   return { message, type };
 };
 
-const API_serach = async (target, tag, isreply) => {
+const API_search = async (target, tag, isreply) => {
   const {
     data: { message, content, type },
   } = await instance.get("/search", {
@@ -97,5 +99,5 @@ export {
   API_post,
   API_reply,
   API_promote,
-  API_serach,
+  API_search,
 };
