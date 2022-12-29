@@ -90,12 +90,6 @@ const API_search = async (target, tag, isreply) => {
   return { message, content, type };
 };
 
-// const restart = async () =>
-// {
-//     const {data: {msg, ans}} = await instance.post('/restart')
-//     return {msg, ans}
-// }
-
 export {
   API_signin,
   API_signup,
