@@ -7,7 +7,7 @@ const CardSchema = new Schema({
     title: {type: String, required: [true, 'Title field is required.']},
     question: {type: String, required: [true, 'Question field is required.']},
     response: {type: String},
-    tag: [{type: String}],
+    tags: [{type: String}],
     replied: {type: Boolean, required: [true, 'Replied field is required']}
 }, {timestamps: true})
 

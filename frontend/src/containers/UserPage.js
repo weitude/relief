@@ -8,6 +8,7 @@ import AddIcon from '@mui/icons-material/Add';
 import {IconButton} from '@mui/material';
 import {useRelief} from "../hooks/useRelief";
 import NavigationBar from "../components/NavigationBar";
+import {useNavigate} from "react-router-dom";
 // import { MasonryInfiniteGrid } from "@egjs/react-infinitegrid";
 
 /*
@@ -24,8 +25,9 @@ const UserPage = () => {
 
     const [quesArr, setQuesArr] = useState(async () => (await (API_search('', [], false)).content));
 
+    console.log("quesArr:", quesArr)
     const userGetData = async () => {
-        const data = await setQuesArr((await API_search('', [], false)).content);
+        await setQuesArr((await API_search('', [], false)).content);
     }
 
     useEffect(() => {
@@ -36,6 +38,9 @@ const UserPage = () => {
     const handleOpen = () => {
         setCreateNewPost(true);
     }
+
+
+
     return (
         <>
             <NavigationBar/>
@@ -44,9 +49,7 @@ const UserPage = () => {
                     {
                         quesArr.length > 0
                             ? quesArr.map((item, i) => (
-                                <div key={i} id={"content_container_" + {i}}>
-                                    <Ques item={item}/>
-                                </div>
+                                <Ques key={i} item={item}/>
                             ))
                             : ""
                     }

@@ -23,7 +23,7 @@ const NewPost = () => {
     }
 
     const handleSubmit = () => {
-        API_post(title, content, chosenTag);
+        API_post(title, content, chosenTag.sort());
         handleClose();
     }
 

@@ -1,38 +1,50 @@
 import React from 'react';
 import {Card, Tag} from 'antd';
+import {useNavigate} from "react-router-dom";
 
 const {Meta} = Card;
 
 const style = {
     'academic': "blue",
-    'romantic': "magenta",
-    'friendship': "gold",
     'emo': "purple",
+    'family': "volcano",
+    'friendship': "gold",
     'life': "green",
-    'family': "volcano"
+    'romantic': "magenta"
 };
 
-const Ques = (item) => {
-    const {title, question, tag} = item.item;
+const Ques = ({item}) => {
+    const {id, title, question, tags} = item;
+
+    const navigate = useNavigate();
+    const ToPost = (id) => {
+        navigate("/post/" + id)
+    }
+
     return (
         <Card
             hoverable
+            onClick={()=>   ToPost(id)}
             style={{
-                width: 290,
-                height: 290,
+                width: 300,
+                height: 300,
                 margin: 10,
             }}>
             <Meta title={title}/>
             <div className='Ques_Text'>
                 {question}
             </div>
-            {tag.map((tag) => (
-                <Tag key={tag} color={style[tag]}>
-                    {tag}
-                </Tag>
-            ))}
+            <div className="tags">
+            {tags.map((tag, idx) => {
+                if (tag !== "others") {
+                    return (<Tag key={idx} color={style[tag]}>
+                        {tag}
+                    </Tag>)
+                }
+            })}
+            </div>
         </Card>
     )
-};
+}
 
 export default Ques;

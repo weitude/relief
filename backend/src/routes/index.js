@@ -46,18 +46,25 @@ router.get("/signin", async (req, res) => {
 });
 
 router.post("/postcard", async (req, res) => {
-  const buf = crypto.randomBytes(8);
-  const id = Base64.encode(buf.toString());
+  let id;
   const title = req.body.title;
   const question = req.body.question;
-  const tag = [...req.body.tag, "others"];
-
+  const tags = [...req.body.tags, "others"];
+  while (1)
+  {
+    id = crypto.randomInt(100000000, 1000000000).toString()
+    const ret = await Card.findOne({
+      id:id
+    })
+    if (!ret)
+      break;
+  }
   try {
     const result = await Card.create({
       title: title,
       question: question,
       response: "",
-      tag: tag,
+      tags: tags,
       replied: false,
       id: id,
     });
@@ -110,12 +117,12 @@ router.post("/promote", async (req, res) => {
 
 router.get("/search", async (req, res) => {
   let target = req.query.target;
-  let tag = req.query.tag;
-  if (tag === undefined) tag = [];
+  let tags = req.query.tags;
+  if (tags === undefined) tags = [];
   const isReply = req.query.isReply;
 
   try {
-    if (tag.length === 0) tag = ["others"];
+    if (tags.length === 0) tags = ["others"];
     if (target.length === 0) target = ".";
 
     const result = await Card.find({
@@ -123,12 +130,13 @@ router.get("/search", async (req, res) => {
         {
           $or: [
             { title: { $regex: ".*" + target + "*." } },
-            { tag: { $in: tag } },
+            { tags: { $in: tags } },
           ],
         },
         { replied: isReply },
       ],
-    }).sort("created_at");
+    }).sort({createdAt : -1});
+    console.log("result:",result)
 
     res.json({ message: "success", content: result, type: 1 });
   } catch {

@@ -20,7 +20,7 @@ const MenuProps = {
   },
 };
 
-const tags = ['academic', 'romantic', 'friendship', 'emo', 'life', 'family'];
+const tags = ['academic', 'emo', 'family', 'friendship', 'life', 'romantic'];
 
 function getStyles(name, chosenTag, theme) {
   return {

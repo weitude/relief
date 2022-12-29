@@ -26,7 +26,7 @@ const theme = createTheme({
 });
 
 
-const tags = ['academic', 'romantic', 'friendship', 'emo', 'life', 'family'];
+const tags = ['academic', 'emo', 'family', 'friendship', 'life', 'romantic'];
 
 /*const tags = [
     {tag: 'academic'},

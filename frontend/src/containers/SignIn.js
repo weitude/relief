@@ -44,7 +44,6 @@ export default function SignIn() {
             if (ret.content[0].role === "user" )
             {
                 setStatus({type: "success", msg: "Login!"})
-
                 setSignedIn(1)
             }
             else if (ret.content[0].role === "admin" )
