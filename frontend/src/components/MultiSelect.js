@@ -15,7 +15,7 @@ const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
     style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      maxHeight: ITEM_HEIGHT * 6 + ITEM_PADDING_TOP,
     },
   },
 };
@@ -48,6 +48,7 @@ export default function MultipleSelect() {
     };
   
     return (
+      
         <FormControl sx={{width: '100%'}}>
           <InputLabel id="multiple-chip-label">Tags</InputLabel>
           <Select

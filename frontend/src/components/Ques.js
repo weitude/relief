@@ -1,22 +1,30 @@
 import React from 'react';
 import { Card, Tag } from 'antd';
 const { Meta } = Card;
-const Ques = () => {
 
+const style = {'academic': "blue", 
+               'romantic': "magenta", 
+               'friendship': "gold", 
+               'emo': "purple", 
+               'life': "green", 
+               'family': "volcano"
+              };
+
+const Ques = (item) => {
+  const { title, question, tag } = item.item;
   return (
-      <Card
+      <Card 
         hoverable
         style={{
           width: 240,
           height: 300,
           margin: 10,
         }}>
-        <Meta title="How to code QAQ" />
-        <div className='Ques_Text'>
-          <p>Some preview Messages.</p>
-        </div>
-        <Tag color="magenta">NoReply</Tag>
-        <Tag color="gold">Joyful</Tag>
+          <Meta title={title} />
+          <div className='Ques_Text'>
+            {question}
+          </div>
+            {tag.map((tag) => (<Tag color={style[tag]}>{tag}</Tag>))}
       </Card>
     )};
 
