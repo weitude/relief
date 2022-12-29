@@ -31,8 +31,6 @@ function getStyles(name, chosenTag, theme) {
   };
 }
 
-
-
 export default function MultipleSelect() {
     const { chosenTag, setchosenTag } = useRelief();
     const theme = useTheme();
