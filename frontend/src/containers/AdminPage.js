@@ -30,6 +30,7 @@ const AdminPage = () => {
   return (
     <>
       <NavigationBar />
+
       <PromoteModal
         open={modalOpen}
         onCreate={async ({ name }) => {
@@ -41,7 +42,7 @@ const AdminPage = () => {
           setModalOpen(false);
         }}
       />
-      <div className="box">
+      <div className="userPageBox">
         <div className="Content">
           {quesArr.length > 0
             ? quesArr.map((item, i) => <Ques key={i} item={item} />)
