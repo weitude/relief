@@ -9,14 +9,6 @@ import { IconButton } from "@mui/material";
 import { useRelief } from "../hooks/useRelief";
 import NavigationBar from "../components/NavigationBar";
 
-/*
-const Title = styled.h1`
-  font-size: 80px;
-  font-family: 'Dancing Script', 'La Belle Aurore', 'Nunito', 'Roboto', sans-serif;
-  color: #FFFFFF;
-  text-shadow: 2px 2px 2px #897C6E;
-`;*/
-
 const UserPage = () => {
   const { createNewPost, status, displayStatus, setCreateNewPost } =
     useRelief();

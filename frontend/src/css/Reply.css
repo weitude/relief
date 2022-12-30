@@ -1,0 +1,17 @@
+.box {
+    display: flex;
+    margin: 5px;
+    width: 80%;
+    height: 100%;
+}
+
+.content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(180, 155, 121, 0.3);
+}
+
+.btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

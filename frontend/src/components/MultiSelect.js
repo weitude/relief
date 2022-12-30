@@ -40,7 +40,7 @@ export default function MultipleSelect() {
     } = event;
     setChosenTag(
       // On autofill, we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
+      typeof value === "string" ? value.split(",") : value,
     );
   };
 
