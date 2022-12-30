@@ -1,17 +1,18 @@
 {
   "files": {
     "main.css": "/static/css/main.3972b339.css",
-    "main.js": "/static/js/main.b4bdd2e2.js",
+    "main.js": "/static/js/main.5f82c3d5.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/media/ragdoll.jpg": "/static/media/ragdoll.378bb3985362200ae9f5.jpg",
+    "static/media/loading.png": "/static/media/loading.fdd492d6c1f8b9108f8b.png",
     "static/media/logo192.png": "/static/media/logo192.dd72c762fa7ca2e44773.png",
     "index.html": "/index.html",
     "main.3972b339.css.map": "/static/css/main.3972b339.css.map",
-    "main.b4bdd2e2.js.map": "/static/js/main.b4bdd2e2.js.map",
+    "main.5f82c3d5.js.map": "/static/js/main.5f82c3d5.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3972b339.css",
-    "static/js/main.b4bdd2e2.js"
+    "static/js/main.5f82c3d5.js"
   ]
 }
