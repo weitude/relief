@@ -38,25 +38,31 @@ const Post = () => {
     <>
       <NavigationBar />
       <div className="container">
-        <div className="title">{title}</div>
-        <div className="box">
-          <div className="block">
-            <h2> Questions </h2>
-            <Paper className="paper" elevation={3}>
-              <Typography className="text">{question}</Typography>
-            </Paper>
-          </div>
-          <div className="block">
-            <h2> Responses </h2>
-            {signedIn === 2 ? (
-              <Reply id={id} />
-            ) : (
-              <Paper className="paper" elevation={3}>
-                <Typography className="text">{response}</Typography>
-              </Paper>
-            )}
-          </div>
-        </div>
+        {title ? (
+          <>
+            <div className="title">{title}</div>
+            <div className="box">
+              <div className="block">
+                <h2> Questions </h2>
+                <Paper className="paper" elevation={3}>
+                  <Typography className="text">{question}</Typography>
+                </Paper>
+              </div>
+              <div className="block">
+                <h2> Responses </h2>
+                {signedIn === 2 ? (
+                  <Reply id={id} />
+                ) : (
+                  <Paper className="paper" elevation={3}>
+                    <Typography className="text">{response}</Typography>
+                  </Paper>
+                )}
+              </div>
+            </div>
+          </>
+        ) : (
+          "loading..."
+        )}
       </div>
     </>
   );
