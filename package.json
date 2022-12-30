@@ -1,0 +1,23 @@
+{
+  "name": "relief",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:weitude/relief.git",
+  "author": "weitude <eric.c.w.lin@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "start": "cd frontend && yarn start",
+    "server": "cd backend && yarn server"
+  },
+  "lint-staged": {
+    "*.{js, json}": [
+      "prettier --write"
+    ]
+  }
+}
