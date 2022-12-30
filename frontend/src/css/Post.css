@@ -1,8 +1,6 @@
 .container {
     height: 80vh;
     margin-top: 10px;
-    text-align: center;
-    
 }
 
 .title {
@@ -35,6 +33,10 @@
 
 .text {
     overflow: scroll;
+}
+
+.loading {
+    text-align: center;
 }
 
 .block {

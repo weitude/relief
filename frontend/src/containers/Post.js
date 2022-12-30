@@ -61,7 +61,7 @@ const Post = () => {
             </div>
           </>
         ) : (
-          "loading..."
+          <div className="loading">loading...</div>
         )}
       </div>
     </>
