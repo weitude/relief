@@ -43,14 +43,15 @@ body {background-color: rgba(192, 135, 100, 0.49);}
 
 .Create{
     width: 50%;
-    height: 50%;
+    height: 70%;
     background-color: rgba(255, 255, 255, 1);
     position: absolute;
     left: 25%;
-    top: 25%;
+    top: 10%;
     border-radius: 20px;
     display: flex;
     padding: 20px;
+    overflow: scroll;
 }
 
 .Footer{
@@ -81,6 +82,7 @@ body {background-color: rgba(192, 135, 100, 0.49);}
     margin: 10px;
     display: flex;
     flex-direction: row;
+    padding-top: 10px;
 }
 
 .form_item_footer{
@@ -91,12 +93,25 @@ body {background-color: rgba(192, 135, 100, 0.49);}
     justify-content: flex-end;
 }
 
+#form_content{
+    height: 80%;
+    overflow: scroll;
+}
+
 .tags {
     display: flex;
-width: 250px;
+    width: 250px;
     height: 55px;
     flex-wrap: wrap;
     align-content: space-around
     /*position: absolute;*/
     /*margin-bottom: 300px;*/
 }
+
+/* .checkableTag:hover{
+    background-color: #DACEBD;
+}
+
+.checkableTag:checked{
+    background-color: #BBA996;
+} */

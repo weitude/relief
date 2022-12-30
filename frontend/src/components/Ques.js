@@ -15,7 +15,6 @@ const style = {
 
 const Ques = ({item}) => {
     const {id, title, question, tags} = item;
-
     const navigate = useNavigate();
     const ToPost = (id) => {
         navigate("/post/" + id)
@@ -30,9 +29,9 @@ const Ques = ({item}) => {
                 height: 300,
                 margin: 10,
             }}>
-            <Meta title={title}/>
+            <Meta title={title} className='Ques_Title'/>
             <div className='Ques_Text'>
-                {question}
+                {question.length > 136 ? question.slice(0, 136) + "..." : question}
             </div>
             <div className="tags">
             {tags.map((tag, idx) => {
