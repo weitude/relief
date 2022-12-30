@@ -7,7 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 import Ques from "../components/Ques";
 import { API_promote, API_search } from "../axios";
 import { useRelief } from "../hooks/useRelief";
-import loading from "../images/loading.png";
+import "../css/UserPage.css";
 
 const AdminPage = () => {
   const { displayStatus } = useRelief();
@@ -43,11 +43,9 @@ const AdminPage = () => {
       />
       <div className="box">
         <div className="Content">
-          {quesArr.length > 0 ? (
-            quesArr.map((item, i) => <Ques key={i} item={item} />)
-          ) : (
-            <img alt="loading" src={loading} />
-          )}
+          {quesArr.length > 0
+            ? quesArr.map((item, i) => <Ques key={i} item={item} />)
+            : "loading..."}
         </div>
         <div className="Footer">
           <IconButton id="addBtn" onClick={() => setModalOpen(true)}>

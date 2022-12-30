@@ -18,19 +18,17 @@ const Reply = (id) => {
   //TODO: after submitting, returned to the AdminPage
 
   return (
-    <div className="box">
-      <div className="content">
-        <TextField
-          id="newReply_content"
-          label="Content"
-          variant="outlined"
-          required={true}
-          multiline
-          rows={16}
-          sx={{ width: "100%" }}
-          onChange={(e) => setResponse(e.target.value)}
-        />
-      </div>
+    <div className="replyBox">
+      <TextField
+        id="newReply_content"
+        label="Content"
+        variant="outlined"
+        required={true}
+        multiline
+        rows={18}
+        sx={{ width: "100%" }}
+        onChange={(e) => setResponse(e.target.value)}
+      />
       <div className="btn">
         <Button
           variant="contained"
@@ -42,8 +40,7 @@ const Reply = (id) => {
           onClick={handleSubmit}
           disabled={!response}
         >
-          {" "}
-          Reply{" "}
+          Reply
         </Button>
       </div>
     </div>

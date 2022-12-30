@@ -37,7 +37,7 @@ const UserPage = () => {
   return (
     <>
       <NavigationBar />
-      <div className="box">
+      <div className="userPageBox">
         <div className="Content">
           {quesArr.length > 0
             ? quesArr.map((item, i) => <Ques key={i} item={item} />)

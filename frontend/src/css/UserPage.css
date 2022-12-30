@@ -1,16 +1,19 @@
-body {background-color: rgba(192, 135, 100, 0.49);}
-.box {
+body {
+    background-color: rgba(192, 135, 100, 0.49);
+}
+
+.userPageBox {
     height: 90vh;
     margin-top: 10px;
     overflow: scroll;
 }
 
-.Title{
+.Title {
     background-color: #BBA996;
     justify-content: center;
 }
 
-.Content{
+.Content {
     padding: 20px;
     display: flex;
     flex-direction: row;
@@ -19,7 +22,7 @@ body {background-color: rgba(192, 135, 100, 0.49);}
     justify-content: center;
 }
 
-.SearchBar{
+.SearchBar {
     width: 90%;
     height: 20%;
     display: flex;
@@ -28,13 +31,11 @@ body {background-color: rgba(192, 135, 100, 0.49);}
     margin: 10px;
 }
 
-.Ques_Text{
+.Ques_Text {
     height: 185px;
-    /*width: 180px;*/
-    /*margin: 2px;*/
 }
 
-.Create{
+.Create {
     width: 50%;
     height: 70%;
     background-color: rgba(255, 255, 255, 1);
@@ -47,30 +48,27 @@ body {background-color: rgba(192, 135, 100, 0.49);}
     overflow: scroll;
 }
 
-.Footer{
+.Footer {
     width: 100%;
     position: fixed;
     bottom: 0;
     display: flex;
     justify-content: flex-end;
-    padding-right: 100px;
 }
 
-#addBtn{
-    /*margin-left: 100px;*/
+#addBtn {
     margin-right: 35px;
     margin-bottom: 30px;
     background-color: rgba(192, 135, 100, 0.49);
-    /*margin: 25px;*/
 }
 
-.create_form{
+.create_form {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.form_item{
+.form_item {
     width: 100%;
     margin: 10px;
     display: flex;
@@ -78,7 +76,7 @@ body {background-color: rgba(192, 135, 100, 0.49);}
     padding-top: 10px;
 }
 
-.form_item_footer{
+.form_item_footer {
     width: 100%;
     margin: 10px;
     display: flex;
@@ -86,7 +84,7 @@ body {background-color: rgba(192, 135, 100, 0.49);}
     justify-content: flex-end;
 }
 
-#form_content{
+#form_content {
     height: 80%;
     overflow: scroll;
 }
@@ -98,11 +96,3 @@ body {background-color: rgba(192, 135, 100, 0.49);}
     flex-wrap: wrap;
     align-content: space-around
 }
-
-/* .checkableTag:hover{
-    background-color: #DACEBD;
-}
-
-.checkableTag:checked{
-    background-color: #BBA996;
-} */
