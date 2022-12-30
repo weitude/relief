@@ -71,7 +71,6 @@ export default function NavigationBar() {
         <AppBar position="static">
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <IconButton
-              // size="small"
               edge="start"
               color="inherit"
               aria-label="open drawer"
@@ -80,42 +79,7 @@ export default function NavigationBar() {
             >
               <Avatar alt="NTU Relief" src={logo} />
             </IconButton>
-            {/*<Typography
-                            variant="h4"
-                            // noWrap
-                            // component="div"
-                            color="#b3662e"
-                            sx={{width: 190}}
-                            // sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
-                        >
-                            NTU Relief
-                        </Typography>*/}
 
-            <Search>
-              {/*<SearchIconWrapper color="#b3662e">
-                                <SearchIcon/>
-                            </SearchIconWrapper>*/}
-
-              <InputBase
-                sx={{ ml: 2, width: 200 }}
-                onInput={(e) => {
-                  setTarget(e.target.value);
-                  // console.log(e.target.value);
-                }}
-                placeholder="Search..."
-                inputProps={{ "aria-label": "search" }}
-              />
-              <IconButton
-                type="submit"
-                aria-label="search"
-                onClick={async () => {
-                  const ret = await API_search(target, chosenTag, true);
-                  console.log("ret", ret);
-                }}
-              >
-                <SearchIcon />
-              </IconButton>
-            </Search>
             <Autocomplete
               sx={{
                 ml: 2,
@@ -132,15 +96,27 @@ export default function NavigationBar() {
                 <TextField {...params} label="Choose a tag" placeholder="tag" />
               )}
             ></Autocomplete>
-            {/*<Box><MultipleSelectCheckmarks /></Box>*/}
-            <Typography
-              variant="h5"
-              // noWrap
-              // component="div"
-              color="#8B5128"
-              // sx={{ml: auto}}
-              // sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
-            >
+            <Search>
+              <InputBase
+                sx={{ ml: 2, width: 200 }}
+                onInput={(e) => {
+                  setTarget(e.target.value);
+                }}
+                placeholder="Search..."
+                inputProps={{ "aria-label": "search" }}
+              />
+              <IconButton
+                type="submit"
+                aria-label="search"
+                onClick={async () => {
+                  const ret = await API_search(target, chosenTag, true);
+                  console.log("ret", ret);
+                }}
+              >
+                <SearchIcon />
+              </IconButton>
+            </Search>
+            <Typography variant="h5" color="#8B5128">
               {renderName()}
             </Typography>
           </Toolbar>
