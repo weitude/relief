@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";
+import { API_search } from "../axios";
 
 const ReliefContext = createContext({});
 
@@ -17,6 +18,15 @@ const ReliefProvider = (props) => {
   const [createNewPost, setCreateNewPost] = useState(false);
 
   const [quesArr, setQuesArr] = useState([]);
+
+  const getQues = async () => {
+    const ret = await API_search("", [], signedIn !== 2);
+    setQuesArr(ret.content);
+  };
+
+  useEffect(() => {
+    getQues();
+  }, [signedIn]);
 
   const displayStatus = async (s) => {
     if (s.msg) {
@@ -53,6 +63,7 @@ const ReliefProvider = (props) => {
         chosenTag,
         setChosenTag,
         title,
+        getQues,
         setTitle,
         content,
         setContent,

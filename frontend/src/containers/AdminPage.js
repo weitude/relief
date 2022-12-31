@@ -14,16 +14,7 @@ const AdminPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   // const [quesArr, setQuesArr] = useState([]);
 
-  const getQues = async () => {
-    const ret = await API_search("", [], false);
-    setQuesArr(ret.content);
-  };
-
-  useEffect(() => {
-    getQues();
-  }, []);
-
-  console.log("quesArr:", quesArr);
+  // console.log("quesArr:", quesArr);
 
   return (
     <>

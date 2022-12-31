@@ -25,13 +25,13 @@ const UserPage = () => {
   );*/
 
   console.log("quesArr:", quesArr);
-  const userGetData = async () => {
+  /*const userGetData = async () => {
     await setQuesArr((await API_search("", [], true)).content);
   };
 
   useEffect(() => {
     userGetData();
-  }, []);
+  }, []);*/
 
   /*useEffect(() => {
     displayStatus(status);

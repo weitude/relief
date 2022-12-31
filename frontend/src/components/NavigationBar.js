@@ -47,12 +47,21 @@ const Search = styled("div")(({ theme }) => ({
 }));
 
 export default function NavigationBar() {
-  const { name, chosenTag, setChosenTag, signedIn, quesArr, setQuesArr } =
-    useRelief();
+  const {
+    name,
+    chosenTag,
+    displayStatus,
+    getQues,
+    setChosenTag,
+    signedIn,
+    quesArr,
+    setQuesArr,
+  } = useRelief();
   const [target, setTarget] = useState("");
   const navigate = useNavigate();
 
   const navigateToHome = () => {
+    getQues();
     navigate("/", {
       state: {
         signedIn: signedIn,
@@ -70,8 +79,15 @@ export default function NavigationBar() {
     console.log("search:", target, chosenTag);
     const ret = await API_search(target, chosenTag, signedIn !== 2);
     console.log("ret", ret);
+    setTarget("");
+    setChosenTag([]);
+    if (ret.content.length === 0) {
+      displayStatus({ type: "error", msg: "no such question!" });
+      return;
+    }
+
     setQuesArr(ret.content);
-    console.log("quesArr:", quesArr);
+    console.log("quesArr:", quesArr, target, chosenTag);
   };
 
   return (
@@ -94,6 +110,7 @@ export default function NavigationBar() {
                 ml: 2,
                 width: 580,
               }}
+              value={chosenTag}
               multiple
               id="size-small-outlined-multi"
               size="small"
@@ -107,6 +124,7 @@ export default function NavigationBar() {
             ></Autocomplete>
             <Search>
               <InputBase
+                value={target}
                 sx={{ ml: 2, width: 200 }}
                 onInput={(e) => {
                   setTarget(e.target.value);
