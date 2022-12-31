@@ -71,6 +71,7 @@ export default function NavigationBar() {
     const ret = await API_search(target, chosenTag, signedIn !== 2);
     console.log("ret", ret);
     setQuesArr(ret.content);
+    console.log("quesArr:", quesArr);
   };
 
   return (

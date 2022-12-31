@@ -49,14 +49,12 @@ router.post("/postcard", async (req, res) => {
   const title = req.body.title;
   const question = req.body.question;
   const tags = [...req.body.tags, "others"];
-  while (1)
-  {
-    id = crypto.randomInt(100000000, 1000000000).toString()
+  while (1) {
+    id = crypto.randomInt(100000000, 1000000000).toString();
     const ret = await Card.findOne({
-      id:id
-    })
-    if (!ret)
-      break;
+      id: id,
+    });
+    if (!ret) break;
   }
   try {
     const result = await Card.create({
@@ -80,7 +78,7 @@ router.post("/reply", async (req, res) => {
   try {
     const result = await Card.updateOne(
       { id: id },
-      { $set: { response: response, replied: true } }
+      { $set: { response: response, replied: true } },
     );
     res.json({ message: "success", content: result, type: 1 });
   } catch {
@@ -128,14 +126,16 @@ router.get("/search", async (req, res) => {
       $and: [
         {
           $or: [
-            { title: { $regex: ".*" + target + "*." } },
-            { tags: { $in: tags } },
+            { title: { $regex: target } },
+            { question: { $regex: target } },
+            { response: { $regex: target } },
           ],
         },
+        { tags: { $in: tags } },
         { replied: isReply },
       ],
-    }).sort({createdAt : -1});
-    console.log("result:",result)
+    }).sort({ createdAt: -1 });
+    console.log("result:", result);
 
     res.json({ message: "success", content: result, type: 1 });
   } catch {

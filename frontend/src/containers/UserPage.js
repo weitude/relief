@@ -10,12 +10,19 @@ import { useRelief } from "../hooks/useRelief";
 import NavigationBar from "../components/NavigationBar";
 
 const UserPage = () => {
-  const { createNewPost, status, displayStatus, signedIn, setCreateNewPost } =
-    useRelief();
+  const {
+    createNewPost,
+    quesArr,
+    setQuesArr,
+    status,
+    displayStatus,
+    signedIn,
+    setCreateNewPost,
+  } = useRelief();
 
-  const [quesArr, setQuesArr] = useState(
+  /*const [quesArr, setQuesArr] = useState(
     async () => await API_search("", [], true).content,
-  );
+  );*/
 
   console.log("quesArr:", quesArr);
   const userGetData = async () => {
@@ -26,9 +33,9 @@ const UserPage = () => {
     userGetData();
   }, []);
 
-  useEffect(() => {
+  /*useEffect(() => {
     displayStatus(status);
-  }, [status]);
+  }, [status]);*/
 
   const handleOpen = () => {
     setCreateNewPost(true);
