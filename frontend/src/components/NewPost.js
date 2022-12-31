@@ -53,6 +53,7 @@ const NewPost = () => {
               onChange={(e) => setContent(e.target.value)}
             />
           </div>
+          <div className="form_item">tags:</div>
           <div className="form_item">
             <SelectTag />
           </div>

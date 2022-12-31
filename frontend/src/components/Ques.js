@@ -32,7 +32,7 @@ const Ques = ({ item }) => {
     >
       <Meta title={title} className="Ques_Title" />
       <div className="Ques_Text">
-        {question.length > 136 ? question.slice(0, 136) + "..." : question}
+        {question.length > 100 ? question.slice(0, 100) + "..." : question}
       </div>
       <div className="tags">
         {tags.map((tag, idx) => {

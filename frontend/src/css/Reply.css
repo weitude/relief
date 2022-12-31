@@ -1,9 +1,19 @@
 .replyBox {
     display: flex;
-    width: 90%;
-    flex-direction: column
+    width: 100%;
+    flex-direction: column;
+    align-items: center
 }
 
 .btn {
     margin-top: 20px;
+}
+
+.paper {
+    display: flex;
+    /*padding: 20px;*/
+    white-space: break-spaces;
+    width: 80%;
+    height: 410px;
+    /*justify-content: center*/
 }

@@ -10,11 +10,9 @@ import { useRelief } from "../hooks/useRelief";
 import "../css/UserPage.css";
 
 const AdminPage = () => {
-  const { displayStatus } = useRelief();
+  const { displayStatus, quesArr, setQuesArr } = useRelief();
   const [modalOpen, setModalOpen] = useState(false);
-  const [quesArr, setQuesArr] = useState(
-    async () => await API_search("", [], false).content,
-  );
+  // const [quesArr, setQuesArr] = useState([]);
 
   const getQues = async () => {
     const ret = await API_search("", [], false);

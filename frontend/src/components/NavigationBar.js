@@ -47,7 +47,8 @@ const Search = styled("div")(({ theme }) => ({
 }));
 
 export default function NavigationBar() {
-  const { name, chosenTag, setChosenTag, signedIn } = useRelief();
+  const { name, chosenTag, setChosenTag, signedIn, quesArr, setQuesArr } =
+    useRelief();
   const [target, setTarget] = useState("");
   const navigate = useNavigate();
 
@@ -63,6 +64,13 @@ export default function NavigationBar() {
     if (signedIn === 1) return "(User) " + name;
     else if (signedIn === 2) return "(Admin) " + name;
     else return "(Guest)";
+  };
+
+  const handleSearch = async () => {
+    console.log("search:", target, chosenTag);
+    const ret = await API_search(target, chosenTag, signedIn !== 2);
+    console.log("ret", ret);
+    setQuesArr(ret.content);
   };
 
   return (
@@ -108,10 +116,7 @@ export default function NavigationBar() {
               <IconButton
                 type="submit"
                 aria-label="search"
-                onClick={async () => {
-                  const ret = await API_search(target, chosenTag, true);
-                  console.log("ret", ret);
-                }}
+                onClick={handleSearch}
               >
                 <SearchIcon />
               </IconButton>

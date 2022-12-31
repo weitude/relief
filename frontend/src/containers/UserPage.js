@@ -10,7 +10,7 @@ import { useRelief } from "../hooks/useRelief";
 import NavigationBar from "../components/NavigationBar";
 
 const UserPage = () => {
-  const { createNewPost, status, displayStatus, setCreateNewPost } =
+  const { createNewPost, status, displayStatus, signedIn, setCreateNewPost } =
     useRelief();
 
   const [quesArr, setQuesArr] = useState(
@@ -51,11 +51,15 @@ const UserPage = () => {
         ) : (
           ""
         )}
-        <div className="Footer">
-          <IconButton id="addBtn" onClick={handleOpen}>
-            <AddIcon sx={{ fontSize: 50, color: "#ffffff" }} />
-          </IconButton>
-        </div>
+        {signedIn === 1 ? (
+          <div className="Footer">
+            <IconButton id="addBtn" onClick={handleOpen}>
+              <AddIcon sx={{ fontSize: 50, color: "#ffffff" }} />
+            </IconButton>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

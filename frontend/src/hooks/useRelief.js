@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { message } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const ReliefContext = createContext({});
 
@@ -14,6 +15,8 @@ const ReliefProvider = (props) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [createNewPost, setCreateNewPost] = useState(false);
+
+  const [quesArr, setQuesArr] = useState([]);
 
   const displayStatus = async (s) => {
     if (s.msg) {
@@ -46,7 +49,7 @@ const ReliefProvider = (props) => {
         setSignedIn,
         setStatus,
         displayStatus,
-
+        // navigateToHome,
         chosenTag,
         setChosenTag,
         title,
@@ -55,6 +58,8 @@ const ReliefProvider = (props) => {
         setContent,
         createNewPost,
         setCreateNewPost,
+        quesArr,
+        setQuesArr,
       }}
       {...props}
     />
