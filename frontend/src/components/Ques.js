@@ -1,3 +1,4 @@
+import "../css/Ques.css";
 import React from "react";
 import { Card, Tag } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -30,8 +31,8 @@ const Ques = ({ item }) => {
         margin: 10,
       }}
     >
-      <Meta title={title} className="Ques_Title" />
-      <div className="Ques_Text">
+      <Meta title={title} />
+      <div className="question">
         {question.length > 100 ? question.slice(0, 100) + "..." : question}
       </div>
       <div className="tags">

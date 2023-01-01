@@ -1,26 +1,23 @@
-import { useState } from "react";
-import { Button, Paper, TextField } from "@mui/material";
-
-// import { makeStyles } from '@mui/styles';
-import { API_reply } from "../axios";
 import "../css/Reply.css";
+import { useState } from "react";
+import { Button, TextField } from "@mui/material";
+import { API_reply } from "../axios";
 import { useRelief } from "../hooks/useRelief";
 import { useNavigate } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-/*const CustomTextField = withStyles({
-  root: {
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderRadius: `4px 0 0 4px`,
-      },
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#c47a45",
     },
   },
-})(TextField);*/
+});
 
-const Reply = (id) => {
+const Reply = ({ id }) => {
   const { signedIn } = useRelief();
   const [response, setResponse] = useState("");
-  console.log(id.id, response);
+  console.log(id, response);
 
   const navigate = useNavigate();
 
@@ -32,52 +29,35 @@ const Reply = (id) => {
     });
   };
 
-  /*useEffect(() => {
-    navigateToHome();
-  }, [signedIn]);*/
-
   const handleSubmit = async () => {
-    console.log(id, response);
-    const res = await API_reply(id.id, response);
+    await API_reply(id, response);
     setResponse("");
-    console.log(res);
     navigateToHome();
   };
 
-  //TODO: after submitting, returned to the AdminPage
-
   return (
-    <div className="replyBox">
-      <Paper className="paper" elevation={3}>
-        <TextField
-          id="newReply_content"
-          label="Content"
-          variant="outlined"
-          required={true}
-          multiline
-          rows={16}
-          sx={{
-            width: "100%",
-            backgroundColor: "#ffffff",
-          }}
-          onChange={(e) => setResponse(e.target.value)}
-        />
-      </Paper>
+    <ThemeProvider theme={theme}>
+      <TextField
+        id="newReply_content"
+        label="Response"
+        variant="outlined"
+        required={true}
+        multiline
+        rows={15}
+        sx={{ width: "100%" }}
+        onChange={(e) => setResponse(e.target.value)}
+      />
       <div className="btn">
         <Button
           variant="contained"
-          sx={{
-            width: "100%",
-            backgroundColor: "#BBA996",
-            "&:hover": { backgroundColor: "#B49B79" },
-          }}
+          sx={{ width: "100%" }}
           onClick={handleSubmit}
           disabled={!response}
         >
           Reply
         </Button>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 

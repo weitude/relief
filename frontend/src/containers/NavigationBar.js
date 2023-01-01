@@ -8,7 +8,6 @@ import Grid from "@mui/material/Grid";
 import Logo from "../components/Logo";
 import TagBar from "../components/TagBar";
 import Search from "../components/Search";
-import "../css/Search.css";
 
 export default function NavigationBar() {
   const { name, signedIn } = useRelief();
@@ -40,7 +39,7 @@ export default function NavigationBar() {
             />
           </Grid>
           <Grid item xs={2}>
-            <Typography variant="h5" color="#8B5128">
+            <Typography variant="h5" color="#8B5128" align="right">
               {renderName()}
             </Typography>
           </Grid>

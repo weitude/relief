@@ -1,3 +1,4 @@
+import "../css/Page.css";
 import NavigationBar from "./NavigationBar";
 import * as React from "react";
 import { useState } from "react";
@@ -7,19 +8,14 @@ import AddIcon from "@mui/icons-material/Add";
 import Ques from "../components/Ques";
 import { API_promote } from "../axios";
 import { useRelief } from "../hooks/useRelief";
-import "../css/UserPage.css";
 
 const AdminPage = () => {
-  const { displayStatus, quesArr, setQuesArr } = useRelief();
+  const { displayStatus, quesArr } = useRelief();
   const [modalOpen, setModalOpen] = useState(false);
-  // const [quesArr, setQuesArr] = useState([]);
-
-  // console.log("quesArr:", quesArr);
 
   return (
     <>
       <NavigationBar />
-
       <PromoteModal
         open={modalOpen}
         onCreate={async ({ name }) => {
@@ -31,13 +27,13 @@ const AdminPage = () => {
           setModalOpen(false);
         }}
       />
-      <div className="userPageBox">
-        <div className="Content">
+      <div className="pageWrapper">
+        <div className="pageContainer">
           {quesArr.length > 0
             ? quesArr.map((item, i) => <Ques key={i} item={item} />)
             : "loading..."}
         </div>
-        <div className="Footer">
+        <div className="pageFooter">
           <IconButton id="addBtn" onClick={() => setModalOpen(true)}>
             <AddIcon sx={{ fontSize: 50, color: "#ffffff" }} />
           </IconButton>

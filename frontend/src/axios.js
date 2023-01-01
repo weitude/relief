@@ -1,12 +1,10 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:4040/api/",
-  // baseURL: "https://nturelief.up.railway.app/api/",
+  baseURL: "https://nturelief.up.railway.app/api/",
 });
 
 const API_signin = async (name, password) => {
-  console.log(password);
   const {
     data: { message, content, type },
   } = await instance.get("/signin", {
@@ -64,7 +62,6 @@ const API_reply = async (id, response) => {
 };
 
 const API_promote = async (name) => {
-  console.log("promote");
   const {
     data: { message, type },
   } = await instance.post("/promote", {
@@ -84,7 +81,6 @@ const API_search = async (target, tags, isReply) => {
       isReply,
     },
   });
-  console.log("front2", message, content, type);
   return { message, content, type };
 };
 

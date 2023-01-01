@@ -1,0 +1,11 @@
+.question {
+    margin-top: 20px;
+    height: 170px;
+}
+
+.tags {
+    display: flex;
+    height: 55px;
+    flex-wrap: wrap;
+    align-content: space-around
+}

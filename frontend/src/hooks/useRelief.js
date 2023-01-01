@@ -5,17 +5,10 @@ import { API_search } from "../axios";
 const ReliefContext = createContext({});
 
 const ReliefProvider = (props) => {
-  // const [status, setStatus] = useState({});
+  const [signedIn, setSignedIn] = useState(0);
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [passwd, setPasswd] = useState("");
-  const [signedIn, setSignedIn] = useState(0);
-
-  const [chosenTag, setChosenTag] = useState([]);
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [createNewPost, setCreateNewPost] = useState(false);
-
   const [quesArr, setQuesArr] = useState([]);
 
   const getQues = async () => {
@@ -40,29 +33,18 @@ const ReliefProvider = (props) => {
   return (
     <ReliefContext.Provider
       value={{
+        signedIn,
+        setSignedIn,
+        name,
+        setName,
         passwd,
         setPasswd,
         mail,
         setMail,
-        name,
-        // status,
-        setName,
-        signedIn,
-        setSignedIn,
-        // setStatus,
-        displayStatus,
-        // navigateToHome,
-        chosenTag,
-        setChosenTag,
-        title,
-        getQues,
-        setTitle,
-        content,
-        setContent,
-        createNewPost,
-        setCreateNewPost,
         quesArr,
         setQuesArr,
+        displayStatus,
+        getQues,
       }}
       {...props}
     />

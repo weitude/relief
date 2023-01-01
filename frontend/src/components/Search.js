@@ -1,3 +1,4 @@
+import "../css/Search.css";
 import { API_search } from "../axios";
 import { useRelief } from "../hooks/useRelief";
 import IconButton from "@mui/material/IconButton";

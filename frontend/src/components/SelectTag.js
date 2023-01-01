@@ -1,35 +1,37 @@
 import { Tag } from "antd";
-import { useRelief } from "../hooks/useRelief";
+import Box from "@mui/material/Box";
 
 const { CheckableTag } = Tag;
-const tagsdata = [
-  "academic",
-  "emo",
-  "family",
-  "friendship",
-  "life",
-  "romantic",
-];
+const tags = ["academic", "emo", "family", "friendship", "life", "romantic"];
 
-const SelectTag = () => {
-  const { chosenTag, setChosenTag } = useRelief();
-
+const SelectTag = ({ chosenTags, setChosenTags }) => {
   const handleChange = (tag, checked) => {
     const nextChosenTags = checked
-      ? [...chosenTag, tag]
-      : chosenTag.filter((t) => t !== tag);
-    setChosenTag(nextChosenTags);
+      ? [...chosenTags, tag]
+      : chosenTags.filter((t) => t !== tag);
+    setChosenTags(nextChosenTags);
   };
 
-  return tagsdata.map((tag) => (
-    <CheckableTag
-      key={tag}
-      checked={chosenTag.indexOf(tag) > -1}
-      onChange={(checked) => handleChange(tag, checked)}
+  return (
+    <Box
+      sx={{
+        border: 1,
+        borderRadius: 1,
+        padding: 1,
+        borderColor: "#C4C4C4",
+      }}
     >
-      {tag}
-    </CheckableTag>
-  ));
+      {tags.map((tag) => (
+        <CheckableTag
+          key={tag}
+          checked={chosenTags.indexOf(tag) >= 0}
+          onChange={(checked) => handleChange(tag, checked)}
+        >
+          {tag}
+        </CheckableTag>
+      ))}
+    </Box>
+  );
 };
 
 export default SelectTag;
