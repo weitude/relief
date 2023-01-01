@@ -1,7 +1,20 @@
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
+import { useNavigate } from "react-router-dom";
+import { useRelief } from "../hooks/useRelief";
 
 export default function MyCopyright() {
+  const { signedIn } = useRelief();
+  const navigate = useNavigate();
+
+  const navigateToHome = () => {
+    navigate("/", {
+      state: {
+        signedIn: signedIn,
+      },
+    });
+  };
+
   return (
     <Typography
       variant="body2"
@@ -10,7 +23,7 @@ export default function MyCopyright() {
       sx={{ mt: 5 }}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://nturelief.me/">
+      <Link color="inherit" onClick={navigateToHome} href="/#/">
         NTU Relief
       </Link>{" "}
       {new Date().getFullYear()}

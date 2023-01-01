@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import Home from "./containers/Home";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./containers/SignUp";

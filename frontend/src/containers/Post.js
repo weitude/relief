@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useRelief } from "../hooks/useRelief";
 import Reply from "../components/Reply";
 import { useEffect, useState } from "react";
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "./NavigationBar";
 import { Paper } from "@mui/material";
 import Typography from "@mui/material/Typography";
 

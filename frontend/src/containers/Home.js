@@ -5,7 +5,7 @@ import AdminPage from "./AdminPage";
 import { useLocation } from "react-router-dom";
 
 export default function Home() {
-  const { signedIn, status, setStatus, displayStatus } = useRelief();
+  const { signedIn } = useRelief();
   const { state } = useLocation();
   const HomePage = (role) => {
     if (role === 0) return <SignIn />;
@@ -13,7 +13,6 @@ export default function Home() {
     if (role === 2) return <AdminPage />;
   };
 
-  console.log(signedIn);
   if (state) {
     return HomePage(state.signedIn);
   } else {

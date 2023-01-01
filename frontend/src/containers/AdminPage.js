@@ -1,11 +1,11 @@
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "./NavigationBar";
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PromoteModal from "../components/PromoteModal";
 import { IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import Ques from "../components/Ques";
-import { API_promote, API_search } from "../axios";
+import { API_promote } from "../axios";
 import { useRelief } from "../hooks/useRelief";
 import "../css/UserPage.css";
 

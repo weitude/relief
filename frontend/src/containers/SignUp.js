@@ -3,8 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -24,12 +22,12 @@ const theme = createTheme({
     },
   },
 });
+
 export default function SignUp() {
   const { name, setName, passwd, signedIn, setPasswd, mail, setMail } =
     useRelief();
 
   useEffect(() => {
-    console.log("init signup");
     setName("");
     setMail("");
     setPasswd("");
@@ -57,9 +55,8 @@ export default function SignUp() {
       window.alert("Password length should >= 3");
       return;
     }
-    const ret = await API_signup(name, mail, passwd, "user");
+    await API_signup(name, mail, passwd, "user");
     navigateToHome();
-    console.log(ret);
   };
 
   return (
@@ -80,7 +77,6 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          {/*<Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 3}}>*/}
           <Box component="form" noValidate sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -118,14 +114,15 @@ export default function SignUp() {
                   onChange={(e) => setPasswd(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/*TODO: notify user with email when replied*/}
+              {/*<Grid item xs={12}>
                 <FormControlLabel
                   control={
                     <Checkbox value="allowExtraEmails" color="primary" />
                   }
                   label="I want to receive updates via email."
                 />
-              </Grid>
+              </Grid>*/}
             </Grid>
             <Button
               fullWidth

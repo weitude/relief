@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Paper, TextField } from "@mui/material";
 
 // import { makeStyles } from '@mui/styles';
-
 import { API_reply } from "../axios";
 import "../css/Reply.css";
 import { useRelief } from "../hooks/useRelief";

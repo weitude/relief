@@ -32,8 +32,6 @@ export default function SignIn() {
     passwd,
     setPasswd,
     setSignedIn,
-    status,
-    setStatus,
     displayStatus,
   } = useRelief();
 
@@ -52,22 +50,15 @@ export default function SignIn() {
   }, [signedIn]);
 
   const handleUserLogin = async () => {
-    console.log("name", name, "passwd", passwd);
     const ret = await API_signin(name, passwd);
-    console.log(ret);
     if (ret.type === 1) {
-      console.log(ret.content);
-
       if (ret.content[0].role === "user") {
-        setStatus({ type: "success", msg: "Login!" });
         setSignedIn(1);
       } else if (ret.content[0].role === "admin") {
-        setStatus({ type: "success", msg: "Login!" });
-
         setSignedIn(2);
       }
     } else {
-      setStatus({ type: "error", msg: "Wrong name or password!" });
+      displayStatus({ type: "error", msg: "Wrong name or password!" });
     }
   };
 
@@ -86,7 +77,6 @@ export default function SignIn() {
           md={7}
           sx={{
             backgroundImage: `url(${ragdoll})`,
-            backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -115,7 +105,6 @@ export default function SignIn() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            {/*<Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 1}}>*/}
             <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"

@@ -1,12 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { message } from "antd";
-import { useNavigate } from "react-router-dom";
 import { API_search } from "../axios";
 
 const ReliefContext = createContext({});
 
 const ReliefProvider = (props) => {
-  const [status, setStatus] = useState({});
+  // const [status, setStatus] = useState({});
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [passwd, setPasswd] = useState("");
@@ -29,19 +28,12 @@ const ReliefProvider = (props) => {
   }, [signedIn]);
 
   const displayStatus = async (s) => {
-    if (s.msg) {
-      const { type, msg } = s;
-      const content = { content: msg, duration: 1 };
-      switch (type) {
-        case "success":
-          message.success(content);
-          break;
-        case "error":
-          message.error(content);
-          break;
-        default:
-          break;
-      }
+    const { type, msg } = s;
+    const content = { content: msg, duration: 1 };
+    if (type === "success") {
+      message.success(content);
+    } else if (type === "error") {
+      message.error(content);
     }
   };
 
@@ -53,11 +45,11 @@ const ReliefProvider = (props) => {
         mail,
         setMail,
         name,
-        status,
+        // status,
         setName,
         signedIn,
         setSignedIn,
-        setStatus,
+        // setStatus,
         displayStatus,
         // navigateToHome,
         chosenTag,

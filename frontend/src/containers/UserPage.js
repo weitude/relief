@@ -2,40 +2,14 @@ import Ques from "../components/Ques";
 import NewPost from "../components/NewPost";
 import "../css/UserPage.css";
 import * as React from "react";
-import { useEffect, useState } from "react";
-import { API_search } from "../axios";
 import AddIcon from "@mui/icons-material/Add";
 import { IconButton } from "@mui/material";
 import { useRelief } from "../hooks/useRelief";
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "./NavigationBar";
 
 const UserPage = () => {
-  const {
-    createNewPost,
-    quesArr,
-    setQuesArr,
-    status,
-    displayStatus,
-    signedIn,
-    setCreateNewPost,
-  } = useRelief();
-
-  /*const [quesArr, setQuesArr] = useState(
-    async () => await API_search("", [], true).content,
-  );*/
-
-  console.log("quesArr:", quesArr);
-  /*const userGetData = async () => {
-    await setQuesArr((await API_search("", [], true)).content);
-  };
-
-  useEffect(() => {
-    userGetData();
-  }, []);*/
-
-  /*useEffect(() => {
-    displayStatus(status);
-  }, [status]);*/
+  const { createNewPost, quesArr, displayStatus, signedIn, setCreateNewPost } =
+    useRelief();
 
   const handleOpen = () => {
     setCreateNewPost(true);
