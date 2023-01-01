@@ -11,6 +11,7 @@
     "prettier": "^2.8.1"
   },
   "scripts": {
+    "install:all": "yarn && cd frontend && yarn && cd ../backend && yarn",
     "prepare": "husky install",
     "start": "cd frontend && yarn start",
     "server": "cd backend && yarn server"
