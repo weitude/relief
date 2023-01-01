@@ -25,9 +25,8 @@ export default function MyCopyright() {
       {"Copyright © "}
       <Link color="inherit" onClick={navigateToHome} href="/#/">
         NTU Relief
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
+      </Link>
+      {" " + new Date().getFullYear() + "."}
     </Typography>
   );
 }
