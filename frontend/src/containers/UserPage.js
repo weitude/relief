@@ -1,7 +1,7 @@
 import "../css/Page.css";
+import * as React from "react";
 import Ques from "../components/Ques";
 import NewPost from "../components/NewPost";
-import * as React from "react";
 import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import { IconButton } from "@mui/material";
