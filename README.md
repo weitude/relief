@@ -1,5 +1,7 @@
 # NTU Relief
 
+如果喜歡或有幫助的話，歡迎給我們顆星星！
+
 + frontend
 
   https://nturelief.me
