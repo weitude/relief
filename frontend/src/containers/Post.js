@@ -26,6 +26,7 @@ const Post = () => {
 
   useEffect(() => {
     openCard();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -39,13 +40,13 @@ const Post = () => {
             <div className="title">{title}</div>
             <div className="postContainer">
               <div className="postBox">
-                <h2> Questions </h2>
+                <h2> Question </h2>
                 <Paper className="paper" elevation={3}>
                   <Typography>{question}</Typography>
                 </Paper>
               </div>
               <div className="postBox">
-                <h2> Responses </h2>
+                <h2> Response </h2>
                 <Paper className="paper" elevation={3}>
                   {signedIn === 2 ? (
                     <Reply id={id} />

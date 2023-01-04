@@ -44,6 +44,7 @@ const Ques = ({ item }) => {
               </Tag>
             );
           }
+          return null;
         })}
       </div>
     </Card>

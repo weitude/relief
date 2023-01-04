@@ -35,5 +35,5 @@
     padding: 20px;
     white-space: break-spaces;
     width: 80%;
-    overflow: scroll;
+    overflow-y: scroll;
 }

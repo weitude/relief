@@ -18,6 +18,7 @@ const ReliefProvider = (props) => {
 
   useEffect(() => {
     getQues();
+    // eslint-disable-next-line
   }, [signedIn]);
 
   const displayStatus = async (s) => {

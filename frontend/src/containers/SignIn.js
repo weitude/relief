@@ -47,6 +47,7 @@ export default function SignIn() {
 
   useEffect(() => {
     navigateToHome();
+    // eslint-disable-next-line
   }, [signedIn]);
 
   const handleUserLogin = async () => {
