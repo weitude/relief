@@ -17,7 +17,7 @@
     "server": "cd backend && yarn server"
   },
   "lint-staged": {
-    "*.{js, json, css}": [
+    "*.{js,json,css}": [
       "prettier --write"
     ]
   }
