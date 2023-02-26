@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.439bbf48.css",
-    "main.js": "/static/js/main.763b9800.js",
+    "main.js": "/static/js/main.fe6b8d08.js",
     "static/media/ragdoll.jpg": "/static/media/ragdoll.378bb3985362200ae9f5.jpg",
     "static/media/logo192.png": "/static/media/logo192.dd72c762fa7ca2e44773.png",
     "index.html": "/index.html",
     "main.439bbf48.css.map": "/static/css/main.439bbf48.css.map",
-    "main.763b9800.js.map": "/static/js/main.763b9800.js.map"
+    "main.fe6b8d08.js.map": "/static/js/main.fe6b8d08.js.map"
   },
   "entrypoints": [
     "static/css/main.439bbf48.css",
-    "static/js/main.763b9800.js"
+    "static/js/main.fe6b8d08.js"
   ]
 }
