@@ -1,5 +1,5 @@
 # NTU Relief
-
+Cancel changes
 如果喜歡或有幫助的話，歡迎給我們顆星星！
 
 + frontend
@@ -14,4 +14,4 @@
 
 + backend health check
 
-  https://nturelief.up.railway.app/api/health
+  https://relief-9d69.onrender.com/api/health
