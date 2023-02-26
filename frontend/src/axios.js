@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://relief-9d69.onrender.com/",
+  baseURL: "https://relief-9d69.onrender.com/api/",
 });
 
 const API_signin = async (name, password) => {
